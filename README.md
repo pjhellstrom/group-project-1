@@ -6,9 +6,14 @@
   1. Who is your target audience?
   <!-- people who don't know how to cook -->
   2. What is the problem that the product will address?
-  
+  <!-- it's hard to get a customized recepie -->
   3. What is the primary goal of the product?
+  <!-- is to get healthy recepies -->
   4. Identify and prioritize essential user stories (limit this to 3 or fewer)?
+  <!-- As a user, I want a smiple way to get a recepies i like.
+       As a user, I don't want to eat junck food.
+       As a user, I want to track my neutrition value.
+   -->
 
 * Remember, your MVP should be the absolute *minimum* product that you need to pitch your idea to investors (or your classmates). Think bare essentials.
 
