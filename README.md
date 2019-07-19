@@ -7,10 +7,19 @@
 
   2. What is the problem that the product will address?
 
+ There is no simple app of getting a customized recipie for occasional cooks.
 
 
   3. What is the primary goal of the product?
+    To get recipies
+
+
   4. Identify and prioritize essential user stories (limit this to 3 or fewer)?
+  as a user I want a simple user friendly way to get meal inspiration and recipies
+  As a user I want to have simple instructions to follow on how to prepare recipies
+  As a user I want an easy way to find out what I can make from ingredients on hand
+  as a user I like to know the nutritional value of what I'm eating
+  
 
 * Remember, your MVP should be the absolute *minimum* product that you need to pitch your idea to investors (or your classmates). Think bare essentials.
 
