@@ -1,9 +1,10 @@
 //Init variables
-let q = "chicken";
+let q = "";
 let maxResults = 6;
 let offset = 6;
 let cardCount = 0;
 let results = "";
+let listIngredients = "";
 
 let apiID = "50377603"
 let apiKEY = "8429a3b88a2a31286dfa2da759edd0c2"
@@ -26,18 +27,18 @@ $(document).ready( function() {
         //Set q to input term and update queryURL
         q = $("#inputBar").val();
         queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}`;
-        
         //API call
         $.ajax({
             url: queryURL,
             method: "GET"
             }).then(function(response) {
-                //Set response.hits array a var results
-                results = response.hits;
                 debugger;
+                //Set response.hits array to var results
+                results = response.hits;
+                //Make cards for each hit in response
                 for (var i = 0; i < results.length; i++) {
                 populateCard(i);
-            }
+                }
         });
 
         //set variables from API response
@@ -82,31 +83,67 @@ $(document).ready( function() {
         //set variables from API response
         
         //DOM manipulation - populate search results container and wrapper with cards
-        populateCard();
-
+        for (var i = 0; i < results.length; i++) {
+            // debugger;
+            populateCard(i);
+        };
     });
 
-//Populates Card with API reponse (incl. offset)
+//Creates cards from API reponse (incl. offset)
 function populateCard(i) {
-    var j =0;
-    listTopIngredients(i,j);
-    // debugger;
+    //Creates results mini cards
+    //Return list of 3 top ingredients
+    listIngredients(i, 3);
+    //Append card to DOM
     $("#card-wrapper").append(`
     <div class="result-card" id="card-${i}">
         <img src=${results[i].recipe.image}>
         <span>${results[i].recipe.label}</span>
         <ul>
-            ${shortListIngredients}
+            ${ingredients}
         </ul>
     </div>
-`)};    
+    `);
+    //Creates full cards (hidden by default and expanded to show on click)
+    //Return list of all ingredients
+    listIngredients(i, results[i].recipe.ingredients.length);
+    listNutrition(i, results[i].recipe.digest.length);
+    //Append card to DOM
+    $("#card-wrapper").append(`
+    <div class="full-card" id="full-card-${i}">
+        <img src=${results[i].recipe.image}>
+        <span>${results[i].recipe.label} (${Math.round(results[i].recipe.calories)} cal)</span>
+        <ul>
+            ${ingredients}
+        </ul>
+        <ul>
+            ${nutrition}
+        </ul>
+    </div>
+    `);    
+};    
 
-function listTopIngredients(i,j) {
-    var shortListIngredients = "";
-    for (var j = 0; j < 3; j++){
-        $(shortListIngredients).append(`<li>${results[i].recipe.ingredients[j].text}</li>`);
+function listIngredients(i, size) {
+    ingredients = "";
+    for (var j = 0; j < size; j++) {
+        ingredients += (`
+        <li>${results[i].recipe.ingredients[j].text}</li>
+        `);
     };
-    return shortListIngredients;
+    return ingredients;
+};
+
+function listNutrition(i, size) {
+    nutrition = "";
+    for (var j = 0; j < size; j++) {
+        nutrition += (`
+        <li>${results[i].recipe.digest[j].label}: 
+        ${Math.round(results[i].recipe.digest[j].total)}g
+         (${Math.round(results[i].recipe.digest[j].daily)}% of daily)
+        </li>
+        `);
+    };
+    return nutrition;
 };
 
 });//end $(document)ready()
