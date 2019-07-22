@@ -5,6 +5,7 @@ let offset = 6;
 let cardCount = 0;
 let results = "";
 let listIngredients = "";
+let cardSelection = "";
 
 let apiID = "50377603"
 let apiKEY = "8429a3b88a2a31286dfa2da759edd0c2"
@@ -24,53 +25,47 @@ $(document).ready( function() {
         if ($("#inputBar").val()=="") {
             return;
         }
+
+        //Hide search screen container and show results screen container
+        // ******
+
         //Set q to input term and update queryURL
         q = $("#inputBar").val();
         queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}`;
-        //API call
+        
+        //API call and DOM manipulation
         $.ajax({
             url: queryURL,
             method: "GET"
             }).then(function(response) {
-                debugger;
                 //Set response.hits array to var results
                 results = response.hits;
                 //Make cards for each hit in response
                 for (var i = 0; i < results.length; i++) {
-                populateCard(i);
-                }
+                    populateCard(i);
+                };
         });
-
-        //set variables from API response
-
-        //DOM manipulation - populate search results container and wrapper with cards
-
     });
 
 // On results screen ------------------------------------------------------------
 
     //Click listener for result-cards
-    $(".recipe-card").on("click", function() {
+    $(".result-card").on("click", function() {
         //Maximize card (show details loaded in background) get card ID
-        var cardSelection = $(this).attr("id")
-
-        //Populate maximized card with API
+        cardSelection = $(this).attr("id");
+        $(`#full-${cardSelection}`).show();
 
         //Click listener to close card when X button is clicked
         $("#closeBtn").on("click", function() {
-            //Minimize card
-
+            $(`#full-${cardSelection}`).hide();
         });
         //Click listener to close expanded card when clicking outside of card
-        $(document).mouseup(function(e) 
-        {
-            var container = $("CONTAINER SELECTOR");
-
+        $(document).mouseup(function(e) {
+            var container = $(`#full-${cardSelection}`);
             // if the target of the click isn't the container nor a descendant of the container
-            if (!container.is(e.target) && container.has(e.target).length === 0) 
-            {
+            if (!container.is(e.target) && container.has(e.target).length === 0) {
                 container.hide();
-        }
+            }
         });
     });
 
@@ -84,7 +79,6 @@ $(document).ready( function() {
         
         //DOM manipulation - populate search results container and wrapper with cards
         for (var i = 0; i < results.length; i++) {
-            // debugger;
             populateCard(i);
         };
     });
@@ -94,6 +88,7 @@ function populateCard(i) {
     //Creates results mini cards
     //Return list of 3 top ingredients
     listIngredients(i, 3);
+    listHealthLabels(i, 2);
     //Append card to DOM
     $("#card-wrapper").append(`
     <div class="result-card" id="card-${i}">
@@ -102,12 +97,16 @@ function populateCard(i) {
         <ul>
             ${ingredients}
         </ul>
+        <ul>
+            ${healthLabels}
+        </ul>        
     </div>
     `);
     //Creates full cards (hidden by default and expanded to show on click)
     //Return list of all ingredients
     listIngredients(i, results[i].recipe.ingredients.length);
     listNutrition(i, results[i].recipe.digest.length);
+    listHealthLabels(i, results[i].recipe.healthLabels.length);    
     //Append card to DOM
     $("#card-wrapper").append(`
     <div class="full-card" id="full-card-${i}">
@@ -118,6 +117,9 @@ function populateCard(i) {
         </ul>
         <ul>
             ${nutrition}
+        </ul>
+        <ul>
+            ${healthLabels}
         </ul>
     </div>
     `);    
@@ -138,12 +140,23 @@ function listNutrition(i, size) {
     for (var j = 0; j < size; j++) {
         nutrition += (`
         <li>${results[i].recipe.digest[j].label}: 
-        ${Math.round(results[i].recipe.digest[j].total)}g
+        ${Math.round(results[i].recipe.digest[j].total)} g
          (${Math.round(results[i].recipe.digest[j].daily)}% of daily)
         </li>
         `);
     };
     return nutrition;
+};
+
+function listHealthLabels(i, size) {
+    healthLabels = "";
+    for (var j = 0; j < size; j++) {
+        healthLabels += (`
+        <li>${results[i].recipe.healthLabels[j]}
+        </li>
+        `);
+    };
+    return healthLabels;
 };
 
 });//end $(document)ready()
