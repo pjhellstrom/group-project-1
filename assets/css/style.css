@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#main-page-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: initial;
+    background-image: url("https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    background-size: cover;
+
+}
+
+#logo{
+    display: flex;
+    /* align-content: center; */
+    height: 350px;
+    /* border: 2px solid red; */
+    
+}
+
+#searchbar{
+    display: flex;
+    width: 70%;
+
+    border: 1px,solid black;
+
+}
+
+#wel-logo{
+    max-height:100%;
+     max-width:100%;
+}
+
+.badge{
+
+    font-size: 9px;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+}
