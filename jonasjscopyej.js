@@ -102,13 +102,14 @@ $(document).ready( function() {
     $(document).on("click", ".result-card", function() {
     // $(".body").on("click", function() {
         console.log("click");
-        console.log(event);
-        xxeventxx=event;
+        // console.log(event);
+        // xxeventxx=event; // created to have a variable that stores the event for troubleshooting
 
         // Maximize card (show details loaded in background) get card ID
         // cardSelection = $(event.path[1].id).attr("id");
         cardSelection = event.path[1].id;
         console.log(cardSelection);
+        console.log("check show input: "+`#full-${cardSelection}`)
         $(`#full-${cardSelection}`).show();
 
         //Click listener to close card when X button is clicked
@@ -167,7 +168,7 @@ $(document).ready( function() {
         listHealthLabels(i, results[i].recipe.healthLabels.length);    
         //Append card to DOM
         $("#card-wrapper").append(`
-        <div class="full-card" id="full-card-${i}">
+        <div class="full-card" id="full-card-${i} >
             <img src=${results[i].recipe.image}>
             <span>${results[i].recipe.label} (${Math.round(results[i].recipe.calories)} cal)</span>
             <ul>
