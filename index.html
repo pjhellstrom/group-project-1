@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="./assets/javascript/jonasjscopyej.js"></script>
+    <script src="./assets/javascript/jonas.js"></script>
+    <script src="./assets/javascript/db.js"></script>
 
     <link rel="stylesheet" href="./assets/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,7 +17,52 @@
 </head>
 <body>
     <!--main page -->
+
+
     <div class = "container" id="main-page-container"   >
+    <!--registration form-->
+        <div id="registration-form">
+            <button id="addUserBtn">sign up</button>
+            <button id="signInBtn">sign in</button>
+            <button id="signOutBtn">sign out</button>
+
+        </div>
+
+        <div class="form">
+            <div class="addUserForm">
+                <input type="text"placeholder="Your Name">
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">Vegan</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Vegetarian</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Peanut-free</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Tree-nut-free</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Alcohol-free</label>
+                    </div>
+                <button id ="addUserFormBtn" >Create New User</button>
+                    
+            </div>
+            <div class="signInForm">
+                <input type="text"placeholder="Input your name and click">
+                <button id ="signInFormBtn" >Sign in</button>
+            </div>
+        </div>
+        
+    
+
+ 
+
+
+
+    
+    <!--registration form end-->
             <div id = "logo">
                 <img src="./assets/images/imageedit_1_4643196240.png" alt="logo" id="wel-logo">
             </div>  
@@ -88,6 +134,7 @@
     <!-- main page  end -->
 
     <!--result page -->
+    <div class="hidden">
     <div class="container" id = "result-page-container">
         <div class ="nav-bar-search">
                 <img src="./assets/images/imageedit_1_4643196240.png" alt="logo" id="nav-logo">
@@ -99,12 +146,7 @@
                  </div>
         </div>
 
-        <span>
-            <div class="empty">
-                
-            </div>
-        </span>
-         <span><div class="card-wrapper">
+         <div class="card-wrapper">
             <!--<div class="wrapper-col">
                 <div class="wrapper-row">
 
@@ -214,8 +256,9 @@
 
 
         
-        </div></span>
-        
+        </div>
+    </div>
+</div>
               
               
               

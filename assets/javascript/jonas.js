@@ -16,6 +16,14 @@ let queryURL = `https://api.edamam.com/search?q=&app_id=${apiID}&app_key=${apiKE
 $(document).ready( function() {
 
 // On welcome screen ------------------------------------------------------------
+//remove when finish the html and css
+    // $("#main-page-container").hide();
+    // $(".hidden").show();
+//-----------------------------------------
+
+
+
+
 
     //populate intro cards
 
@@ -28,6 +36,9 @@ $(document).ready( function() {
 
         //Hide search screen container and show results screen container
         // ******
+        $("#main-page-container").hide();
+        $(".hidden").show();
+
 
         //Set q to input term and update queryURL
         q = $("#inputBar").val();

@@ -12,8 +12,50 @@
     max-width: initial;
     background-image: url("https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
     background-size: cover;
+    position: relative;
 
 }
+#registration-form{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top:10px;
+    right: 20px;
+
+}
+.form{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+    top:30px;
+    right: 20px;
+}
+
+
+
+
+
+
+#registration-form button{
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    height: 50px;
+    width: 90px;
+    background-color: aquamarine;
+}
+
+#registration-form button:hover {
+
+    background-color:burlywood;
+}
+
+#signOutBtn{
+    display: none;
+}
+
+
 
 #logo{
     display: flex;
@@ -45,10 +87,19 @@
     flex-direction: row;
     margin: 15px;
 }
+.hidden{
+    display: none;
+}
+
+
+
 
 #result-page-container{
-    display:none;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border: 1px solid red;
     max-width: initial;
 }
@@ -96,6 +147,7 @@
 .card-wrapper{
     flex-wrap:wrap;
     display: flex;
+    
     flex-direction: row;
     width:70%;
 
