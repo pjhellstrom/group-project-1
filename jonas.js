@@ -50,18 +50,17 @@ $(document).ready( function() {
 // On results screen ------------------------------------------------------------
 
     //Click listener for result-cards
-    $(".result-card").on("click", function() {
-        debugger;
+    $(document).on("click", ".result-card", function() {
         //Maximize card (show details loaded in background) get card ID
         cardSelection = $(this).attr("id");
         $(`#full-${cardSelection}`).show();
 
         //Click listener to close card when X button is clicked
-        $("#closeBtn").on("click", function() {
+        $(document).on("click", "#closeBtn", function() {
             $(`#full-${cardSelection}`).hide();
         });
         //Click listener to close expanded card when clicking outside of card
-        $(document).mouseup(function(e) {
+        $(document).mouseup(".result-card", function(e) {
             var container = $(`#full-${cardSelection}`);
             // if the target of the click isn't the container nor a descendant of the container
             if (!container.is(e.target) && container.has(e.target).length === 0) {
@@ -110,7 +109,8 @@ function populateCard(i) {
     listHealthLabels(i, results[i].recipe.healthLabels.length);    
     //Append card to DOM
     $("#card-wrapper").append(`
-    <div class="full-card" id="full-card-${i}">
+    <div class="full-card" id="full-card-${i}" style="display: none;">
+        <button id="closeBtn">X</button>
         <img src=${results[i].recipe.image}>
         <span>${results[i].recipe.label} (${Math.round(results[i].recipe.calories)} cal)</span>
         <ul>
