@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    
 }
 #main-page-container{
 
@@ -43,4 +44,66 @@
     display: flex;
     flex-direction: row;
     margin: 15px;
+}
+
+#result-page-container{
+    display:none;
+
+    border: 1px solid red;
+    max-width: initial;
+}
+/* #nav-bar{
+    width: 100%;
+} */
+/* #nav-logo{
+    height: 100px;
+    display: inline-block;
+} */
+
+/* #nav-searchbar{
+    display: inline-block;
+    width: 70%;
+
+    border: 1px,solid black;
+
+} */
+.nav-bar-search{
+    display:flex;
+    flex-direction: row
+}
+
+#nav-logo{
+    height: 200px;
+    display: flex;
+}
+
+#nav-searchbar{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-left: 60px;
+    padding-top: 68px;
+
+
+}
+.nav-form-control{
+    width:900px;
+    height: 50PX;
+
+    
+}
+
+.card-wrapper{
+    flex-wrap:wrap;
+    display: flex;
+    flex-direction: row;
+    width:70%;
+
+}
+
+.individual-card{
+    padding: 20px;
+}
+.empty{
+    margin-right: 300px;
 }
