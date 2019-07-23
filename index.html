@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script type="text/javascript" src="./jonas.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
+    <script type="text/javascript" src="./db.js"></script>  
+    <script type="text/javascript" src="./jonas.js"></script>   
     <title>TEST JONAS</title>
 </head>
 <body>
@@ -13,9 +16,34 @@
     <button id="searchBtn">
         Search
     </button>
+    <button id="addUserBtn">
+        Add me
+    </button>
+    <button id="signInBtn">
+        Sign in
+    </button>
+    <button id="signOutBtn">
+        Sign out
+    </button>
+
+    <div id="signUpWrapper" style="border: solid 2px black; height: 200px; width: 200px; display:none;">   
+        <input id="usernameInput" placeholder="Input username and click create user"></input> 
+        <button id="createUserBtn">
+            Create new user
+        </button> 
+    </div>
+
+    <div id="signInWrapper" style="border: solid 2px black; height: 200px; width: 200px; display:none;">   
+        <input id="signInInput" placeholder="Input username and click sign in"></input> 
+        <button id="signInConfirmBtn">
+            Sign in
+        </button> 
+    </div>
 
     <div id="card-wrapper">
     </div>
+
+    <div id=""></div>
 
     <style>
         * {

@@ -51,6 +51,7 @@ $(document).ready( function() {
 
     //Click listener for result-cards
     $(".result-card").on("click", function() {
+        debugger;
         //Maximize card (show details loaded in background) get card ID
         cardSelection = $(this).attr("id");
         $(`#full-${cardSelection}`).show();
