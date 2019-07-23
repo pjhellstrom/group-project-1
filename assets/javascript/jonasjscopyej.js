@@ -23,7 +23,8 @@ $(document).ready( function() {
 
 //remove when finish the html and css
     $("#main-page-container").hide();
-    $("#result-page-container").show();
+    // made the result page hidden
+    $("#result-page-container").hide();
     $("#result-page-container").attr("display",flex);
 //-----------------------------------------
 
