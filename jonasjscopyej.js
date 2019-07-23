@@ -7,13 +7,15 @@ let results = "";
 let listIngredients = "";
 let cardSelection = "";
 
-let apiID = "50377603"
-let apiKEY = "8429a3b88a2a31286dfa2da759edd0c2"
+
+//Jonas' Credentials
+// let apiID = "50377603"
+// let apiKEY = "8429a3b88a2a31286dfa2da759edd0c2"
 let queryURL = `https://api.edamam.com/search?q=&app_id=${apiID}&app_key=${apiKEY}`;
 
-
-
-
+// My Credentials
+var apiKEY = "99b6245eec9bab6137fdfb558edec22b"
+var apiID= "d2bc1ce9"
 
 
 //Listeners
@@ -41,7 +43,7 @@ $(document).ready( function() {
             //Filter variables
         var lc; var va; var vg; var pf; var tnf; var af;
         
-        if($("#lowcarb").is(':checked')){lc = "&diet=low-carb"}
+        if($("#lowcarb").is(':checked')){lc = "&diet=low-carb"} //&diet=low-carb is what is shown in an example, why isn't it working??? //xxx
         else{lc=""};
         if($("#vegan").is(':checked')){va = "&health=vegan"}
         else{va=""};
@@ -58,14 +60,14 @@ $(document).ready( function() {
 
         //Most filters seem to work, but low-carb doesn't. Only diet filter I've tested...
         queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}${lc}${va}${vg}${pf}${tnf}${af}`;
-        console.log(queryURL);
+        console.log(queryURL); //xxx
       
         // API call and DOM manipulation
         $.ajax({
             url: queryURL,
             method: "GET"
             }).then(function(response) {
-                console.log(response);
+                console.log(response); //xxx
                 //Set response.hits array to var results
                 results = response.hits;
                 //Make cards for each hit in response
@@ -78,24 +80,52 @@ $(document).ready( function() {
 // On results screen ------------------------------------------------------------
 
     //Click listener for result-cards
-    $(".result-card").on("click", function() {
-        //Maximize card (show details loaded in background) get card ID
-        cardSelection = $(this).attr("id");
+    // $(".result-card").on("click", function() {
+    //     //Maximize card (show details loaded in background) get card ID
+    //     cardSelection = $(this).attr("id");
+    //     $(`#full-${cardSelection}`).show();
+
+    //     //Click listener to close card when X button is clicked
+    //     $("#closeBtn").on("click", function() {
+    //         $(`#full-${cardSelection}`).hide();
+    //     });
+    //     //Click listener to close expanded card when clicking outside of card
+    //     $(document).mouseup(function(e) {
+    //         var container = $(`#full-${cardSelection}`);
+    //         // if the target of the click isn't the container nor a descendant of the container
+    //         if (!container.is(e.target) && container.has(e.target).length === 0) {
+    //             container.hide();
+    //         }
+    //     });
+    // });
+
+    $(document).on("click", ".result-card", function() {
+    // $(".body").on("click", function() {
+        console.log("click");
+        console.log(event);
+        xxeventxx=event;
+
+        // Maximize card (show details loaded in background) get card ID
+        // cardSelection = $(event.path[1].id).attr("id");
+        cardSelection = event.path[1].id;
+        console.log(cardSelection);
         $(`#full-${cardSelection}`).show();
 
         //Click listener to close card when X button is clicked
-        $("#closeBtn").on("click", function() {
-            $(`#full-${cardSelection}`).hide();
-        });
+        // $("#closeBtn").on("click", function() {
+        //     $(`#full-${cardSelection}`).hide();
+        // });
         //Click listener to close expanded card when clicking outside of card
-        $(document).mouseup(function(e) {
-            var container = $(`#full-${cardSelection}`);
-            // if the target of the click isn't the container nor a descendant of the container
-            if (!container.is(e.target) && container.has(e.target).length === 0) {
-                container.hide();
-            }
-        });
+        // $(document).mouseup(function(e) {
+        //     var container = $(`#full-${cardSelection}`);
+        //     // if the target of the click isn't the container nor a descendant of the container
+        //     if (!container.is(e.target) && container.has(e.target).length === 0) {
+        //         container.hide();
+        //     }
+        // });
     });
+
+
 
     //Click listener for search button
 
