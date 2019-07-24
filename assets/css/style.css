@@ -153,7 +153,7 @@
 
 
 
-.card-wrapper{
+#card-wrapper{
     flex-wrap:wrap;
     display: flex;
     
