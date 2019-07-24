@@ -122,6 +122,7 @@ function populateCard(i) {
     //Creates results mini cards
     //Return list of 3 top ingredients
     listHealthLabels(i, results[i].recipe.healthLabels.length);
+    debugger;
     //Append card to DOM
     $("#card-wrapper").append(`
     <div class="result-card" id="card-${i}">
@@ -133,7 +134,53 @@ function populateCard(i) {
                     ${healthLabels}
                     </ul>  
             </div>
-        </div>      
+        </div> 
+
+        <div>
+        <canvas id="myChart-${i}" width="200" height="200"></canvas>
+        <script>
+            var ctx = document.getElementById('myChart-${i}').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                    "${results[i].recipe.digest[0].label}",
+                    "${results[i].recipe.digest[1].label}", 
+                    "${results[i].recipe.digest[2].label}", 
+                    "${results[i].recipe.digest[3].label}", 
+                    "${results[i].recipe.digest[4].label}"
+                    ],
+                    datasets: [{
+                        label: '% of weight',
+                        data: [
+                    ${results[i].recipe.digest[0].unit == "mg" ? 
+                    ((results[i].recipe.digest[0].total/1000)/results[i].recipe.totalWeight)*100
+                    : (results[i].recipe.digest[0].total/results[i].recipe.totalWeight)*100
+                    },
+                    ${results[i].recipe.digest[1].unit == "mg" ? 
+                    ((results[i].recipe.digest[1].total/1000)/results[i].recipe.totalWeight)*100
+                    : (results[i].recipe.digest[1].total/results[i].recipe.totalWeight)*100
+                    },
+                    ${results[i].recipe.digest[2].unit == "mg" ? 
+                    ((results[i].recipe.digest[2].total/1000)/results[i].recipe.totalWeight)*100
+                    : (results[i].recipe.digest[2].total/results[i].recipe.totalWeight)*100
+                    },
+                    ${results[i].recipe.digest[3].unit == "mg" ? 
+                    ((results[i].recipe.digest[3].total/1000)/results[i].recipe.totalWeight)*100
+                    : (results[i].recipe.digest[3].total/results[i].recipe.totalWeight)*100
+                    },
+                    ${results[i].recipe.digest[4].unit == "mg" ? 
+                    ((results[i].recipe.digest[4].total/1000)/results[i].recipe.totalWeight)*100
+                    : (results[i].recipe.digest[4].total/results[i].recipe.totalWeight)*100
+                    },
+                    ],
+                        backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(75, 192, 192)"]
+                    }]
+                }
+            });
+        </script>
+        </div> 
+
     </div>
     `);
     //Creates full cards (hidden by default and expanded to show on click)
@@ -150,11 +197,7 @@ function populateCard(i) {
                     <button id="favBtn">❤
                         <span class="tooltiptext">Favourite</span>
                     </button>
-                    <button id="plusBtn">Maps
-                        <span class="tooltiptext">Show Maps</span>
-                    </button>
                     <button id="closeBtn">X
-                        <span class="tooltiptext">Close</span>
                     </button>
                 </div>
                 <h1><span>${results[i].recipe.label} (${Math.round(results[i].recipe.calories)} cal)</span></h1>
@@ -179,23 +222,6 @@ function populateCard(i) {
                     </ul>
                 </div>
             </div>
-            <canvas id="nutriChart-${i}">
-                <script>
-                // Chart.js
-                var ctx-${i} = $('#nutriChart-${i}');
-                var chart-${i} = new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ["Fat", "Carbs", "Protein", "Fibre", "Other"],
-                        datasets: [{
-                            label: "Nutrition Information",
-                            backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(75, 192, 192)"],
-                            data: [15, 25, 25, 20, 15]
-                        }]
-                    },
-                });                
-                </script>
-            </canvas>
         </div>
     </div>
     `);    
@@ -253,56 +279,6 @@ function listHealthLabels(i, size) {
 // return chart;
 // }//end createChart
 
-// Maps API
-// $(document).on("click", "#plusBtn", function() {
-   
-//     $("#mapHide").show();
-    
-//     var map;
-//     var service;
-//     var infowindow;
-    
-//     debugger;
-
-//     function initMap() {
-//         var toronto = new google.maps.LatLng(43.653, -79.383);
-    
-//         infowindow = new google.maps.InfoWindow();
-    
-//         map = new google.maps.Map(document.getElementById('map'), {center: toronto, zoom: 15});
-    
-//         var request = {
-//             query: 'Loblaws',
-//             fields: ['name', 'geometry'],
-//         };
-    
-//         service = new google.maps.places.PlacesService(map);
-//         service.findPlaceFromQuery(request, function(results, status) {
-//             if (status === google.maps.places.PlacesServiceStatus.OK) {
-//                 for (var i = 0; i < results.length; i++) {
-//                     createMarker(results[i]);
-//                 }
-//                 map.setCenter(results[0].geometry.location);
-//             }
-//         });
-//     }
-    
-//     function createMarker(place) {
-//         var marker = new google.maps.Marker({
-//             map: map,
-//             position: place.geometry.location
-//         });
-    
-//         google.maps.event.addListener(marker, 'click', function() {
-//             infowindow.setContent(place.name);
-//             infowindow.open(map, this);
-//         });
-//     };
-
-//     initMap();
-//     setTimeout(createMarker, 1000);
-
-//     });//end Maps API
 
 });//end $(document)ready()
 
