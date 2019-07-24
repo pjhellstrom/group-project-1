@@ -17,8 +17,6 @@ $(document).ready( function() {
 
 // On welcome screen ------------------------------------------------------------
 
-    //populate intro cards
-
     // Click listener for search button
     $("#searchBtn").on("click", function() {
         //Reject if search bar is empty
@@ -106,7 +104,7 @@ function populateCard(i) {
     //Return list of all ingredients
     listIngredients(i, results[i].recipe.ingredients.length);
     listNutrition(i, results[i].recipe.digest.length);
-    listHealthLabels(i, results[i].recipe.healthLabels.length);    
+    listHealthLabels(i, results[i].recipe.healthLabels.length);
     //Append card to DOM
     $("#card-wrapper").append(`
     <div class="full-card" id="full-card-${i}" style="display: none;">
@@ -159,5 +157,23 @@ function listHealthLabels(i, size) {
     };
     return healthLabels;
 };
+
+// function createChart() {
+// // Chart.js
+// var ctx = $('#myChart');
+// var chart = new Chart(ctx, {
+//     type: 'doughnut',
+//     data: {
+//         labels: ["Fat", "Carbs", "Protein", "Fibre", "Other"],
+//         datasets: [{
+//             label: "Nutrition Information",
+//             backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(75, 192, 192)"],
+//             data: [15, 25, 25, 20, 15]
+//         }]
+//     },
+// });
+// //     debugger;
+// return chart;
+// }//end createChart
 
 });//end $(document)ready()

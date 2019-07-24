@@ -9,6 +9,9 @@ let newUser = {
       peanutfree: 0,
       treenutfree: 0,
       alcoholfree: 0
+   },
+   exclusions: {
+
    }
 };
 let currentUser = {};
@@ -42,6 +45,12 @@ $(document).ready( function() {
     var newUserKey = createNewUser.key;
     // Store username under new user
     db.ref(`/${newUserKey}/username`).set(username);
+    // Store preferences
+    var preferences = 
+    db.ref(`/${newUserKey}/preferences`).set(preferences);
+    // Store exclusions
+    var exclusions = 
+    db.ref(`/${newUserKey}/exclusions`).set(exclusions);
  });
 
  // On sign-in button click - show sign-in window
@@ -56,7 +65,6 @@ $(document).ready( function() {
     db.ref().on("value", function(snap) {
       //Loop through keys and look for username
       snap.forEach(function(snap1) {
-         debugger;
          //If username matches, save profile and to currentUser object
          if (snap1.val().username === username) {
             currentUser = snap1.val();

@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
     <script type="text/javascript" src="./db.js"></script>  
     <script type="text/javascript" src="./jonas.js"></script>   
-    <title>TEST JONAS</title>
+    <title>Group Project 1</title>
 </head>
 <body>
     <input id="inputBar" placeholder="Look up an ingredient"></input>
@@ -28,6 +29,23 @@
 
     <div id="signUpWrapper" style="border: solid 2px black; height: 200px; width: 200px; display:none;">   
         <input id="usernameInput" placeholder="Input username and click create user"></input> 
+        <ul>
+            <li>
+                <input type="checkbox" name="preference" value="vegan"> Vegan
+            </li>
+            <li>
+                <input type="checkbox" name="preference" value="vegetarian"> Vegetarian
+            </li>
+            <li>
+                <input type="checkbox" name="preference" value="peanutfree"> Peanut-free
+            </li>
+            <li>
+                <input type="checkbox" name="preference" value="treenutfree"> Tree-nut-free
+            </li>
+            <li>
+                <input type="checkbox" name="preference" value="alcoholfree"> Alcohol-free
+            </li>            
+        </ul>
         <button id="createUserBtn">
             Create new user
         </button> 
@@ -40,15 +58,13 @@
         </button> 
     </div>
 
-    <div id="card-wrapper">
-    </div>
-
-    <div id=""></div>
-
     <style>
         * {
             font-size: 0.9rem;
             font-family: Helvetica, sans-serif;
+        }
+        ul {
+            list-style: none;
         }
         #card-wrapper {
             display: flex;
