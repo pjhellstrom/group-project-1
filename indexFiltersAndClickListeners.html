@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/filtersAndClickListeners.js"></script>
+    <title>TEST JONAS</title>
+</head>
+<body>
+    <form>
+        <input id="inputBar" placeholder="Look up an ingredient"></input><br>
+        <!-- <input type="checkbox" id="lowcarb" value="lowcarb">Low-Carb -->
+        <input type="checkbox" id="vegan" value="vegan">Vegan
+        <input type="checkbox" id="vegetarian" value="vegetarian">Vegetarian
+        <input type="checkbox" id="peanut-free" value="peanut-free">Peanut-Free
+        <input type="checkbox" id="tree-nut-free" value="tree-nut-free">Tree-Nut-Free
+        <input type="checkbox" id="alcohol-free" value="alcohol-free">Alcohol-Free<br>
+
+
+        <button id="searchBtn">
+            Search
+        </button>
+    </form>
+
+
+    <div id="card-wrapper">
+    </div>
+
+
+
+
+
+
+
+
+
+    <style>
+        * {
+            font-size: 1.2rem;
+            font-family: Helvetica, sans-serif;
+        }
+        #card-wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            max-width: 100vw;
+        }
+        .result-card {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            margin:15px;
+            border: 2px solid grey;
+            font-size: 1.5rem;
+            font-weight: bold;
+            width: 300px;
+            height:400px;
+        }
+        .full-card{
+            display: none;
+        }
+    </style>
+
+</body>
+</html>

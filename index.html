@@ -7,16 +7,65 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="./assets/javascript/jonasjscopyej.js"></script>
+    <script src=“https://cdn.jsdelivr.net/npm/chart.js@2.8.0”></script>
+    <script src=“https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js”></script>
+    <script src=“https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js”></script>
+    <script src="./assets/javascript/app.js"></script>
+    <script src="./assets/javascript/db.js"></script>
 
     <link rel="stylesheet" href="./assets/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Document</title>
+    <title>Emergency Recipe</title>
 </head>
 <body>
     <!--main page -->
+
+
     <div class = "container" id="main-page-container"   >
+    <!--registration form-->
+        <div id="registration-form">
+            <button id="addUserBtn">sign up</button>
+            <button id="signInBtn">sign in</button>
+            <button id="signOutBtn">sign out</button>
+
+        </div>
+
+        <div class="form">
+            <div class="addUserForm">
+                <input type="text"placeholder="Your Name">
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">Vegan</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Vegetarian</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Peanut-free</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Tree-nut-free</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Alcohol-free</label>
+                    </div>
+                <button id ="addUserFormBtn" >Create New User</button>
+                    
+            </div>
+            <div class="signInForm">
+                <input type="text"placeholder="Input your name and click">
+                <button id ="signInFormBtn" >Sign in</button>
+            </div>
+        </div>
+        
+    
+
+ 
+
+
+
+    
+    <!--registration form end-->
             <div id = "logo">
                 <img src="./assets/images/imageedit_1_4643196240.png" alt="logo" id="wel-logo">
             </div>  
@@ -88,6 +137,7 @@
     <!-- main page  end -->
 
     <!--result page -->
+    <div class="hidden">
     <div class="container" id = "result-page-container">
         <div class ="nav-bar-search">
                 <img src="./assets/images/imageedit_1_4643196240.png" alt="logo" id="nav-logo">
@@ -243,9 +293,10 @@
         </div>
 
         
-    </div>         
-        
-     <!--result page  end -->      
+        </div>
+    </div>
+</div>
+
               
               
              
@@ -338,32 +389,69 @@
 
 
 
-              <!--full card  end -->
-              
-              
-              
-              
-              
-              
-              
-                           
+     <!--result page  end -->
+    <!--full card   start-->
 
+
+    <div class=" card-hidden">
+        <div class="container" id="fullcard-container">
+            <div id="fullcard-header">
                 
-    
+                <div id="button-container">
+                    
+                    <button id="favBtn">❤
+                        <span class="tooltiptext">Favorate</span>
+                    </button>
+                    <button id="plusBtn">+</button>
+                    <button id="closeBtn">X</button>
+                </div>
+                <h1>Name</h1>
+            </div>
+            <div id="img-lable-container">
+                <img src="./assets/images/test.jpg">
+                <div id="label-container">
+                    <span id="lapel1" class="badge badge-primary">Primary</span>
+                    <span id="lapel2" class="badge badge-secondary">Secondary</span>
+                    <span id="lapel3" class="badge badge-success">Success</span>
+                    <span id="lapel4" class="badge badge-danger">Danger</span>    
+                    <!-- function that loop the list and append each item to this list -->
+                    <!-- <ul id="health-label-list">
+                        
+                    </ul> -->
+                </div>
+            </div>
+            <div id="ingredient-nutri-container">
+                <div id="ingredient">
+                    <ul id="ingredient-list">
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                    </ul>
+                </div>
+                <div id="nutri-List">
+                    <ul>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                    </ul>
+                </div>
+            </div>
+            <canvas>
+                <!-- ??? -->
+            </canvas>
+
+        </div>
+    </div>
 
 
 
+    <!--full card end -->
 
-
-
-
-
-
-
-
-
-
-
-    
 </body>
 </html>

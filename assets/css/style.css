@@ -12,8 +12,50 @@
     max-width: initial;
     background-image: url("https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
     background-size: cover;
+    position: relative;
 
 }
+#registration-form{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top:10px;
+    right: 20px;
+
+}
+.form{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+    top:30px;
+    right: 20px;
+}
+
+
+
+
+
+
+#registration-form button{
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    height: 50px;
+    width: 90px;
+    background-color: aquamarine;
+}
+
+#registration-form button:hover {
+
+    background-color:burlywood;
+}
+
+#signOutBtn{
+    display: none;
+}
+
+
 
 #logo{
     display: flex;
@@ -45,10 +87,18 @@
     flex-direction: row;
     margin: 15px;
 }
+.hidden{
+    display: none;
+}
+
+
+
 
 #result-page-container{
-    display:none;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border: 1px solid red;
     max-width: initial;
     justify-content: center;
@@ -99,6 +149,7 @@
 .card-wrapper{
     flex-wrap:wrap;
     display: flex;
+    
     flex-direction: row;
     justify-content: center;
     width: 70%;
@@ -130,6 +181,7 @@
 .jpg{
     position: relative;  
 }
+
 #lapel1,#lapel2,#lapel3,#lapel4{
     position: absolute;
 }
@@ -149,3 +201,110 @@
 /* .hiddenFullCard{
 display: none;
 } */
+
+/* fullcard elements css below*/
+
+.card-hidden{
+    /* display: none; */
+}
+
+#fullcard-container{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid blueviolet;
+
+}
+
+#fullcard-header{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid blueviolet;
+    padding: 10px;
+    /* position: relative; */
+}
+
+#button-container{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    
+}
+
+#img-lable-container{
+    padding: 10px;
+    overflow: hidden;
+    height: 356px;
+    width: 100%;
+    border: 2px solid blueviolet;
+
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-content: center; */
+}
+
+#img-lable-container img{
+    width: 100%; 
+
+
+}
+
+#label-container{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    right: 260px;
+    top: 200px;
+
+}
+
+/* add padding for label , which how to select?*/
+
+#ingredient-nutri-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 700px;
+    padding: 10px;
+}
+
+
+#favBtn{
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+#favBtn .tooltiptext{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+#favBtn .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+  }
+  
+  #favBtn:hover .tooltiptext {
+    visibility: visible;
+  }
