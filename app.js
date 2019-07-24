@@ -24,9 +24,6 @@ $(document).ready( function() {
             return;
         }
 
-        //Hide search screen container and show results screen container
-        // ******
-
         //Set q to input term and update queryURL
         q = $("#inputBar").val();
         queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}`;
@@ -41,6 +38,7 @@ $(document).ready( function() {
                 //Make cards for each hit in response
                 for (var i = 0; i < results.length; i++) {
                     populateCard(i);
+                    console.log()
                 };
         });
     });
@@ -67,19 +65,14 @@ $(document).ready( function() {
         });
     });
 
-    //Click listener for search button
+    // //Click listener for show me more button (additional search with offset)
+    // $("#show-more").on("click", function() {
 
-    //Click listener for show me more button (additional search with offset)
-    $("#show-more").on("click", function() {
-        //API call with offset
-        
-        //set variables from API response
-        
-        //DOM manipulation - populate search results container and wrapper with cards
-        for (var i = 0; i < results.length; i++) {
-            populateCard(i);
-        };
-    });
+    //     //DOM manipulation - populate search results container and wrapper with cards
+    //     for (var i = 0; i < results.length; i++) {
+    //         populateCard(i);
+    //     };
+    // });
 
 //Creates cards from API reponse (incl. offset)
 function populateCard(i) {
@@ -120,6 +113,8 @@ function populateCard(i) {
         <ul>
             ${healthLabels}
         </ul>
+        <canvas id="nutriChart">
+        </canvas>
     </div>
     `);    
 };    
@@ -159,19 +154,19 @@ function listHealthLabels(i, size) {
 };
 
 // function createChart() {
-// // Chart.js
-// var ctx = $('#myChart');
-// var chart = new Chart(ctx, {
-//     type: 'doughnut',
-//     data: {
-//         labels: ["Fat", "Carbs", "Protein", "Fibre", "Other"],
-//         datasets: [{
-//             label: "Nutrition Information",
-//             backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(75, 192, 192)"],
-//             data: [15, 25, 25, 20, 15]
-//         }]
-//     },
-// });
+// Chart.js
+var ctx = $('#nutriChart');
+var chart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: ["Fat", "Carbs", "Protein", "Fibre", "Other"],
+        datasets: [{
+            label: "Nutrition Information",
+            backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(75, 192, 192)"],
+            data: [15, 25, 25, 20, 15]
+        }]
+    },
+});
 // //     debugger;
 // return chart;
 // }//end createChart
