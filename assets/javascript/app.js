@@ -135,52 +135,6 @@ function populateCard(i) {
                     </ul>  
             </div>
         </div> 
-
-        <div>
-        <canvas id="myChart-${i}" width="200" height="200"></canvas>
-        <script>
-            var ctx = document.getElementById('myChart-${i}').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: [
-                    "${results[i].recipe.digest[0].label}",
-                    "${results[i].recipe.digest[1].label}", 
-                    "${results[i].recipe.digest[2].label}", 
-                    "${results[i].recipe.digest[3].label}", 
-                    "${results[i].recipe.digest[4].label}"
-                    ],
-                    datasets: [{
-                        label: '% of weight',
-                        data: [
-                    ${results[i].recipe.digest[0].unit == "mg" ? 
-                    ((results[i].recipe.digest[0].total/1000)/results[i].recipe.totalWeight)*100
-                    : (results[i].recipe.digest[0].total/results[i].recipe.totalWeight)*100
-                    },
-                    ${results[i].recipe.digest[1].unit == "mg" ? 
-                    ((results[i].recipe.digest[1].total/1000)/results[i].recipe.totalWeight)*100
-                    : (results[i].recipe.digest[1].total/results[i].recipe.totalWeight)*100
-                    },
-                    ${results[i].recipe.digest[2].unit == "mg" ? 
-                    ((results[i].recipe.digest[2].total/1000)/results[i].recipe.totalWeight)*100
-                    : (results[i].recipe.digest[2].total/results[i].recipe.totalWeight)*100
-                    },
-                    ${results[i].recipe.digest[3].unit == "mg" ? 
-                    ((results[i].recipe.digest[3].total/1000)/results[i].recipe.totalWeight)*100
-                    : (results[i].recipe.digest[3].total/results[i].recipe.totalWeight)*100
-                    },
-                    ${results[i].recipe.digest[4].unit == "mg" ? 
-                    ((results[i].recipe.digest[4].total/1000)/results[i].recipe.totalWeight)*100
-                    : (results[i].recipe.digest[4].total/results[i].recipe.totalWeight)*100
-                    },
-                    ],
-                        backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(75, 192, 192)"]
-                    }]
-                }
-            });
-        </script>
-        </div> 
-
     </div>
     `);
     //Creates full cards (hidden by default and expanded to show on click)
@@ -216,6 +170,50 @@ function populateCard(i) {
                         ${ingredients}
                     </ul>
                 </div>
+                <div id="card-chart" style="width: 200px; height: 200px;">
+                <canvas id="myChart-${i}" width="200" height="200"></canvas>
+                <script>
+                    var ctx = document.getElementById('myChart-${i}').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            labels: [
+                            "${results[i].recipe.digest[0].label}",
+                            "${results[i].recipe.digest[1].label}", 
+                            "${results[i].recipe.digest[2].label}", 
+                            "${results[i].recipe.digest[3].label}", 
+                            "${results[i].recipe.digest[4].label}"
+                            ],
+                            datasets: [{
+                                label: '% of weight',
+                                data: [
+                            ${results[i].recipe.digest[0].unit == "mg" ? 
+                            ((results[i].recipe.digest[0].total/1000)/results[i].recipe.totalWeight)*100
+                            : (results[i].recipe.digest[0].total/results[i].recipe.totalWeight)*100
+                            },
+                            ${results[i].recipe.digest[1].unit == "mg" ? 
+                            ((results[i].recipe.digest[1].total/1000)/results[i].recipe.totalWeight)*100
+                            : (results[i].recipe.digest[1].total/results[i].recipe.totalWeight)*100
+                            },
+                            ${results[i].recipe.digest[2].unit == "mg" ? 
+                            ((results[i].recipe.digest[2].total/1000)/results[i].recipe.totalWeight)*100
+                            : (results[i].recipe.digest[2].total/results[i].recipe.totalWeight)*100
+                            },
+                            ${results[i].recipe.digest[3].unit == "mg" ? 
+                            ((results[i].recipe.digest[3].total/1000)/results[i].recipe.totalWeight)*100
+                            : (results[i].recipe.digest[3].total/results[i].recipe.totalWeight)*100
+                            },
+                            ${results[i].recipe.digest[4].unit == "mg" ? 
+                            ((results[i].recipe.digest[4].total/1000)/results[i].recipe.totalWeight)*100
+                            : (results[i].recipe.digest[4].total/results[i].recipe.totalWeight)*100
+                            },
+                            ],
+                                backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(75, 192, 192)"]
+                            }]
+                        }
+                    });
+                </script>
+                </div> 
                 <div id="nutrition">
                     <ul id="nutri-list">
                         ${nutrition}
