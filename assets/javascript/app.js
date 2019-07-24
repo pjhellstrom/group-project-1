@@ -68,15 +68,15 @@ $(document).ready( function() {
         // Set variables for search filter
         var va, vg, pf, tnf, af;
         
-        if($("#vegan").is(':checked')){va = "&health=vegan"}
+        if($("#filter-vegan").is(':checked')){va = "&health=vegan"}
         else{va=""};
-        if($("#vegetarian").is(':checked')){vg = "&health=vegetarian"}
+        if($("#filter-vegetarian").is(':checked')){vg = "&health=vegetarian"}
         else{vg=""};
-        if($("#peanut-free").is(':checked')){pf = "&health=peanut-free"}
+        if($("#filter-peanut-free").is(':checked')){pf = "&health=peanut-free"}
         else{pf=""};
-        if($("#tree-nut-free").is(':checked')){tnf = "&health=tree-nut-free"}
+        if($("#filter-tree-nut-free").is(':checked')){tnf = "&health=tree-nut-free"}
         else{tnf=""};
-        if($("#alcohol-free").is(':checked')){af = "&health=alcohol-free"}
+        if($("#filter-alcohol-free").is(':checked')){af = "&health=alcohol-free"}
         else{af=""};
     
         queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}${va}${vg}${pf}${tnf}${af}`;
@@ -262,6 +262,8 @@ $(document).on("click", "#plusBtn", function() {
     var service;
     var infowindow;
     
+    debugger;
+
     function initMap() {
         var toronto = new google.maps.LatLng(43.653, -79.383);
     
@@ -299,7 +301,7 @@ $(document).on("click", "#plusBtn", function() {
 
     initMap();
     setTimeout(createMarker, 1000);
-    
+
     });//end Maps API
 
 });//end $(document)ready()
