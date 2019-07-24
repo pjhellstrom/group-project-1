@@ -256,7 +256,8 @@ display: none;
 
 #fullcard-container{
     overflow: scroll;
-    /* height: 85vh; */
+    z-index: 200;
+
     display: flex;
     position: relative;
     flex-direction: column;
@@ -444,7 +445,17 @@ display: none;
 /* map elements --------*/
 
 #mapHide{
-    display: none;
+    /* display: none; */
+
+    /* position: fixed;
+    top:10px; */
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index:20000;
+    background-color:red;
+    margin-bottom: 100px;
 
 }
 
