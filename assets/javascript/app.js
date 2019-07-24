@@ -16,9 +16,7 @@ let queryURL = `https://api.edamam.com/search?q=&app_id=${apiID}&app_key=${apiKE
 $(document).ready( function() {
 
 // On welcome screen ------------------------------------------------------------
-//remove when finish the html and css
-    $("#main-page-container").hide();
-    // $(".hidden").show();
+
 //-----------------------------------------
 
 
@@ -36,15 +34,12 @@ $(document).ready( function() {
             return;
         }
 
-<<<<<<< HEAD:app.js
-=======
         //Hide search screen container and show results screen container
         // ******
-        // $("#main-page-container").hide();
-        // $(".hidden").show();
+        $("#main-page-container").hide();
+        $(".hidden").show();
 
 
->>>>>>> 4f781b6306cd5365eb9e552d5ff5ac3202563df7:assets/javascript/jonas.js
         //Set q to input term and update queryURL
         q = $("#inputBar").val();
         queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}`;
