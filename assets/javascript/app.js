@@ -261,9 +261,6 @@ $(document).on("click", "#plusBtn", function() {
     var map;
     var service;
     var infowindow;
-
-    initMap();
-    setTimeout(createMarker, 1000);
     
     function initMap() {
         var toronto = new google.maps.LatLng(43.653, -79.383);
@@ -299,6 +296,10 @@ $(document).on("click", "#plusBtn", function() {
             infowindow.open(map, this);
         });
     };
+
+    initMap();
+    setTimeout(createMarker, 1000);
+    
     });//end Maps API
 
 });//end $(document)ready()
