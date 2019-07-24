@@ -163,11 +163,22 @@
     
 }
 
-.individual-card{
+.result-card{
+
+
     padding: 20px;
     width: 200px;
     display: flex;
     
+}
+
+.card{
+    width: 10rem; 
+    height: 18rem;
+}
+
+.card-title{
+    font-size:  20px;
 }
 #nav-search-btn{
     height: 50px;
@@ -176,14 +187,14 @@
 }
 /* new css tag */
 
-.hiddenFullCard{
+/* .hiddenFullCard{
     display: none;
 }
 
 
 .card-hidden{
     display: none;
-}
+} */
 
 
 
@@ -221,6 +232,7 @@
 display: none;
 } */
 
+
 /* fullcard elements css below*/
 
 .card-hidden{
@@ -233,7 +245,7 @@ display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid blueviolet;
+
 
 }
 
@@ -241,7 +253,7 @@ display: none;
     display:flex;
     flex-direction: row;
     align-items: center;
-    border: 2px solid blueviolet;
+
     padding: 10px;
     /* position: relative; */
 }
@@ -260,9 +272,6 @@ display: none;
     width: 100%;
     border: 2px solid blueviolet;
 
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-content: center; */
 }
 
 #img-lable-container img{
@@ -327,3 +336,7 @@ display: none;
   #favBtn:hover .tooltiptext {
     visibility: visible;
   }
+
+/* .health-label{
+
+} */
