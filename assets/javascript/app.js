@@ -129,22 +129,23 @@ function populateCard(i) {
                     ${healthLabels}
                 </div>
             </div>
+            <a href="${results[i].recipe.url}">Take me to the full recipe!
+            </a>
             <div id="ingredient-nutri-container">
                 <div id="ingredient">
                     <ul id="ingredient-list">
                         ${ingredients}
                     </ul>
                 </div>
-                <div id="nutri-List">
-                    <ul>
+                <div id="nutrition">
+                    <ul id="nutri-list">
                         ${nutrition}
                     </ul>
                 </div>
             </div>
-            <canvas>
+            <canvas id="nutriChart">
+
             </canvas>
-            <a href="${results[i].recipe.url}">Take me to the full recipe!
-            </a>
         </div>
     </div>
     `);    
@@ -164,7 +165,7 @@ function listNutrition(i, size) {
     nutrition = "";
     for (var j = 0; j < size; j++) {
         nutrition += (`
-        <li>${results[i].recipe.digest[j].label}: 
+        <li id="nutri-li">${results[i].recipe.digest[j].label}: 
         ${Math.round(results[i].recipe.digest[j].total)} g
          (${Math.round(results[i].recipe.digest[j].daily)}% of daily)
         </li>
