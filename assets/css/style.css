@@ -235,9 +235,17 @@ display: none;
 
 /* fullcard elements css below*/
 
-.card-hidden{
-    /* display: none; */
+
+#full-card-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
 }
+
+
+
 
 #fullcard-container{
     display: flex;
@@ -245,7 +253,7 @@ display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    border: 3px solid black
 
 }
 
