@@ -20,7 +20,7 @@ $(document).ready( function() {
     //*** JONAS TO DO */
 
     // Click listener for search button
-    $("#searchBtn").on("click", function() {
+    $(document).on("click", "#searchBtn", function() {
 
         //Reject if search bar is empty
         if ($("#inputBar").val()=="") {
@@ -31,10 +31,24 @@ $(document).ready( function() {
         $("#main-page-container").hide();
         $(".hidden").show();
 
-
         //Set q to input term and update queryURL
         q = $("#inputBar").val();
-        queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}`;
+
+        // Set variables for search filter
+        var va, vg, pf, tnf, af;
+        
+        if($("#vegan").is(':checked')){va = "&health=vegan"}
+        else{va=""};
+        if($("#vegetarian").is(':checked')){vg = "&health=vegetarian"}
+        else{vg=""};
+        if($("#peanut-free").is(':checked')){pf = "&health=peanut-free"}
+        else{pf=""};
+        if($("#tree-nut-free").is(':checked')){tnf = "&health=tree-nut-free"}
+        else{tnf=""};
+        if($("#alcohol-free").is(':checked')){af = "&health=alcohol-free"}
+        else{af=""};
+    
+        queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}${va}${vg}${pf}${tnf}${af}`;
         
         //API call and DOM manipulation
         $.ajax({
@@ -72,15 +86,6 @@ $(document).ready( function() {
         });
     });
 
-    // //Click listener for show me more button (additional search with offset)
-    // $("#show-more").on("click", function() {
-
-    //     //DOM manipulation - populate search results container and wrapper with cards
-    //     for (var i = 0; i < results.length; i++) {
-    //         populateCard(i);
-    //     };
-    // });
-
 //Creates cards from API reponse (incl. offset)
 function populateCard(i) {
     //Creates results mini cards
@@ -114,8 +119,8 @@ function populateCard(i) {
                     <button id="favBtn">❤
                         <span class="tooltiptext">Favourite</span>
                     </button>
-                    <button id="plusBtn">+
-                        <span class="tooltiptext">Add Shopping List</span>
+                    <button id="plusBtn">Maps
+                        <span class="tooltiptext">Show Maps</span>
                     </button>
                     <button id="closeBtn">X
                         <span class="tooltiptext">Close</span>
@@ -129,7 +134,7 @@ function populateCard(i) {
                     ${healthLabels}
                 </div>
             </div>
-            <a href="${results[i].recipe.url}">Take me to the full recipe!
+            <a href="${results[i].recipe.url}" target="_empty">Take me to the full recipe!
             </a>
             <div id="ingredient-nutri-container">
                 <div id="ingredient">
@@ -143,8 +148,22 @@ function populateCard(i) {
                     </ul>
                 </div>
             </div>
-            <canvas id="nutriChart">
-
+            <canvas id="nutriChart-${i}">
+                <script>
+                // Chart.js
+                var ctx-${i} = $('#nutriChart-${i}');
+                var chart-${i} = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ["Fat", "Carbs", "Protein", "Fibre", "Other"],
+                        datasets: [{
+                            label: "Nutrition Information",
+                            backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(75, 192, 192)"],
+                            data: [15, 25, 25, 20, 15]
+                        }]
+                    },
+                });                
+                </script>
             </canvas>
         </div>
     </div>
