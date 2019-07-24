@@ -23,7 +23,12 @@
     right: 20px;
 
 }
+.hideFrom{
+    display: none;
+}
 .form{
+
+
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -146,7 +151,9 @@
     
 }
 
-.card-wrapper{
+
+
+#card-wrapper{
     flex-wrap:wrap;
     display: flex;
     
@@ -156,11 +163,22 @@
     
 }
 
-.individual-card{
+.result-card{
+
+    cursor: pointer;
     padding: 20px;
     width: 200px;
     display: flex;
     
+}
+
+.card{
+    width: 10rem; 
+    height: 18rem;
+}
+
+.card-title{
+    font-size:  20px;
 }
 #nav-search-btn{
     height: 50px;
@@ -168,25 +186,38 @@
     background-color: rgb(232,69,69);
 }
 /* new css tag */
+
+/* .hiddenFullCard{
+    display: none;
+}
+
+
+.card-hidden{
+    display: none;
+} */
+
+
+
 .fullCard{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.nagBar{
+/* .nagBar{
     display: flex;
     flex-direction: row;
 }
 .jpg{
     position: relative;  
-}
-
+} */
+/* 
 #lapel1,#lapel2,#lapel3,#lapel4{
     position: absolute;
-}
+    height: 20px;
+} */
 
-.recp{
+/* .recp{
     display: flex;
     flex-direction: row;
 }
@@ -197,24 +228,43 @@
 .nutri{
     display: flex;
     flex-direction: column;
-}
+} */
 /* .hiddenFullCard{
 display: none;
 } */
 
+
 /* fullcard elements css below*/
 
-.card-hidden{
-    /* display: none; */
+
+#full-card-wrapper{
+    position: fixed;
+    top:10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    background-color: aliceblue;
+    margin-bottom: 100px;
+    
 }
 
+
+
+
 #fullcard-container{
+    overflow: scroll;
+    /* height: 85vh; */
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid blueviolet;
+    border: 3px solid black;
+    
+    
 
 }
 
@@ -222,7 +272,7 @@ display: none;
     display:flex;
     flex-direction: row;
     align-items: center;
-    border: 2px solid blueviolet;
+
     padding: 10px;
     /* position: relative; */
 }
@@ -241,9 +291,6 @@ display: none;
     width: 100%;
     border: 2px solid blueviolet;
 
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-content: center; */
 }
 
 #img-lable-container img{
@@ -308,3 +355,18 @@ display: none;
   #favBtn:hover .tooltiptext {
     visibility: visible;
   }
+
+/* .health-label{
+
+} */
+#nutri-li{
+    font-size: 10px;
+    /* color: aqua; */
+}
+
+
+/* map elements --------*/
+
+#mapHide{
+    display: none;
+}
