@@ -446,3 +446,8 @@ display: none;
 #mapHide{
     display: none;
 }
+
+#checkbox-container{
+    display: flex;
+    flex-direction: row;
+}
