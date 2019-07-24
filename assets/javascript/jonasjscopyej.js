@@ -22,9 +22,10 @@ var apiID= "d2bc1ce9"
 $(document).ready( function() {
 
 //remove when finish the html and css
-    // $("#main-page-container").hide();
-    // $("#result-page-container").show();
-    // $("#result-page-container").attr("display",flex);
+    $("#main-page-container").hide();
+    // made the result page hidden
+    $("#result-page-container").hide();
+    $("#result-page-container").attr("display",flex);
 //-----------------------------------------
 
 
