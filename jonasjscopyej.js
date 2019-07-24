@@ -41,7 +41,7 @@ $(document).ready( function() {
 
         // Set filters for search
             //Filter variables
-        var lc; var va; var vg; var pf; var tnf; var af;
+        var lc, va, vg, pf, tnf, af;
         
         if($("#lowcarb").is(':checked')){lc = "&diet=low-carb"} //&diet=low-carb is what is shown in an example, why isn't it working??? //xxx
         else{lc=""};
