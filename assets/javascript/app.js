@@ -185,18 +185,18 @@ function listHealthLabels(i, size) {
 
 // function createChart() {
 // Chart.js
-var ctx = $('#nutriChart');
-var chart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        labels: ["Fat", "Carbs", "Protein", "Fibre", "Other"],
-        datasets: [{
-            label: "Nutrition Information",
-            backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(75, 192, 192)"],
-            data: [15, 25, 25, 20, 15]
-        }]
-    },
-});
+// var ctx = $('#nutriChart');
+// var chart = new Chart(ctx, {
+//     type: 'doughnut',
+//     data: {
+//         labels: ["Fat", "Carbs", "Protein", "Fibre", "Other"],
+//         datasets: [{
+//             label: "Nutrition Information",
+//             backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(75, 192, 192)"],
+//             data: [15, 25, 25, 20, 15]
+//         }]
+//     },
+// });
 // //     debugger;
 // return chart;
 // }//end createChart
