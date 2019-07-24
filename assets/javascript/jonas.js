@@ -17,7 +17,7 @@ $(document).ready( function() {
 
 // On welcome screen ------------------------------------------------------------
 //remove when finish the html and css
-    // $("#main-page-container").hide();
+    $("#main-page-container").hide();
     // $(".hidden").show();
 //-----------------------------------------
 
@@ -29,6 +29,8 @@ $(document).ready( function() {
 
     // Click listener for search button
     $("#searchBtn").on("click", function() {
+
+
         //Reject if search bar is empty
         if ($("#inputBar").val()=="") {
             return;
@@ -36,8 +38,8 @@ $(document).ready( function() {
 
         //Hide search screen container and show results screen container
         // ******
-        $("#main-page-container").hide();
-        $(".hidden").show();
+        // $("#main-page-container").hide();
+        // $(".hidden").show();
 
 
         //Set q to input term and update queryURL

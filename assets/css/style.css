@@ -159,3 +159,59 @@
 .empty{
     margin-right: 300px;
 }
+
+/* fullcard elements css below*/
+
+.card-hidden{
+    /* display: none; */
+}
+
+#fullcard-container{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid blueviolet;
+
+}
+
+#fullcard-header{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid blueviolet;
+    padding: 10px;
+    /* position: relative; */
+}
+
+#button-container{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: 2px solid blueviolet;
+}
+
+#img-lable-container{
+    padding: 10px;
+}
+
+#label-container{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 260px;
+    top: 200px;
+    border: 2px solid blueviolet;
+}
+
+/* add padding for label , which how to select?*/
+
+#ingredient-nutri-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 2px solid blueviolet;
+    width: 700px;
+    padding: 10px;
+}
