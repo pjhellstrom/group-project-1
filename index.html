@@ -12,7 +12,6 @@
     <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
     <script src="./assets/javascript/app.js"></script>
     <script src="./assets/javascript/db.js"></script>
-    <script src="./assets/javascript/s"></script>
 
     <link rel="stylesheet" href="./assets/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -83,19 +82,19 @@
              </div> 
              <div id="checkbox-container">
                     <div class='checkbox'>
-                            <label><input type='checkbox' id='vegan' value=''>Vegan</label>
+                            <label><input type='checkbox' id='filter-vegan' value=''>Vegan</label>
                             </div>
                             <div class='checkbox'>
-                            <label><input type='checkbox' id='vegetarian'value=''>Vegetarian</label>
+                            <label><input type='checkbox' id='filter-vegetarian'value=''>Vegetarian</label>
                             </div>
                             <div class='checkbox'>
-                            <label><input type='checkbox' id='peenut-free'value=''>Peanut-free</label>
+                            <label><input type='checkbox' id='filter-peanut-free'value=''>Peanut-free</label>
                             </div>
                             <div class='checkbox'>
-                            <label><input type='checkbox' id='tree-nut-free'value=''>Tree-nut-free</label>
+                            <label><input type='checkbox' id='filter-tree-nut-free'value=''>Tree-nut-free</label>
                             </div>
                             <div class='checkbox'>
-                            <label><input type='checkbox' id='alcohol-free'value=''>Alcohol-free</label>
+                            <label><input type='checkbox' id='filter-alcohol-free'value=''>Alcohol-free</label>
                     </div>
              </div>
             
@@ -121,8 +120,11 @@
     </div>
     <!-- main page  end -->
 
+
+
     <!-- MAP CONTAINER -->
     <div id="mapHide">
+        <div>hello</div>
         <div id="map"></div>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwDkSGWhB9BoOzauqbnvDz1C9COOHAyKg&libraries=places&callback=initMap" async defer></script>
     

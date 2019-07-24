@@ -68,19 +68,19 @@ $(document).ready( function() {
         // Set variables for search filter
         var va, vg, pf, tnf, af;
         
-        if($("#vegan").is(':checked')){va = "&health=vegan"}
+        if($("#filter-vegan").is(':checked')){va = "&health=vegan"}
         else{va=""};
-        if($("#vegetarian").is(':checked')){vg = "&health=vegetarian"}
+        if($("#filter-vegetarian").is(':checked')){vg = "&health=vegetarian"}
         else{vg=""};
-        if($("#peanut-free").is(':checked')){pf = "&health=peanut-free"}
+        if($("#filter-peanut-free").is(':checked')){pf = "&health=peanut-free"}
         else{pf=""};
-        if($("#tree-nut-free").is(':checked')){tnf = "&health=tree-nut-free"}
+        if($("#filter-tree-nut-free").is(':checked')){tnf = "&health=tree-nut-free"}
         else{tnf=""};
-        if($("#alcohol-free").is(':checked')){af = "&health=alcohol-free"}
+        if($("#filter-alcohol-free").is(':checked')){af = "&health=alcohol-free"}
         else{af=""};
     
         queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}${va}${vg}${pf}${tnf}${af}`;
-        
+        console.log("queryURL: "+queryURL)
         //API call and DOM manipulation
         $.ajax({
             url: queryURL,
@@ -253,49 +253,56 @@ function listHealthLabels(i, size) {
 // return chart;
 // }//end createChart
 
-});//end $(document)ready()
-
 // Maps API
-(document).on("click", "#plusBtn", function() {
+$(document).on("click", "#plusBtn", function() {
    
-$("#mapHide").show();
+    $("#mapHide").show();
     
-var map;
-var service;
-var infowindow;
+    var map;
+    var service;
+    var infowindow;
+    
+    debugger;
 
-function initMap() {
-    var toronto = new google.maps.LatLng(43.653, -79.383);
-
-    infowindow = new google.maps.InfoWindow();
-
-    map = new google.maps.Map(document.getElementById('map'), {center: toronto, zoom: 15});
-
-    var request = {
-        query: 'Loblaws',
-        fields: ['name', 'geometry'],
+    function initMap() {
+        var toronto = new google.maps.LatLng(43.653, -79.383);
+    
+        infowindow = new google.maps.InfoWindow();
+    
+        map = new google.maps.Map(document.getElementById('map'), {center: toronto, zoom: 15});
+    
+        var request = {
+            query: 'Loblaws',
+            fields: ['name', 'geometry'],
+        };
+    
+        service = new google.maps.places.PlacesService(map);
+        service.findPlaceFromQuery(request, function(results, status) {
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    createMarker(results[i]);
+                }
+                map.setCenter(results[0].geometry.location);
+            }
+        });
+    }
+    
+    function createMarker(place) {
+        var marker = new google.maps.Marker({
+            map: map,
+            position: place.geometry.location
+        });
+    
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.setContent(place.name);
+            infowindow.open(map, this);
+        });
     };
 
-    service = new google.maps.places.PlacesService(map);
-    service.findPlaceFromQuery(request, function(results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                createMarker(results[i]);
-            }
-            map.setCenter(results[0].geometry.location);
-        }
-    });
-}
+    initMap();
+    setTimeout(createMarker, 1000);
 
-function createMarker(place) {
-    var marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location
-    });
+    });//end Maps API
 
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name);
-        infowindow.open(map, this);
-    });
-};
-});//end Maps API
+});//end $(document)ready()
+
