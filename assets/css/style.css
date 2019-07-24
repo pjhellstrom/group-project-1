@@ -165,7 +165,7 @@
 
 .result-card{
 
-
+    cursor: pointer;
     padding: 20px;
     width: 200px;
     display: flex;
@@ -239,25 +239,29 @@ display: none;
 #full-card-wrapper{
     position: fixed;
     top:10px;
-    /* height: 90vh; */
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 200;
     background-color: aliceblue;
+    
 }
 
 
 
 
 #fullcard-container{
+    overflow: scroll;
+    height: 90vh;
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px solid black
+    border: 3px solid black;
+    
 
 }
 
@@ -352,7 +356,7 @@ display: none;
 /* .health-label{
 
 } */
-#nutrition{
+#nutri-li{
     font-size: 10px;
-    color: aqua;
+    /* color: aqua; */
 }
