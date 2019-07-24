@@ -1,0 +1,268 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+#main-page-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: initial;
+    background-image: url("https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    background-size: cover;
+    position: relative;
+
+}
+#registration-form{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top:10px;
+    right: 20px;
+
+}
+.form{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+    top:30px;
+    right: 20px;
+}
+
+
+
+
+
+
+#registration-form button{
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    height: 50px;
+    width: 90px;
+    background-color: aquamarine;
+}
+
+#registration-form button:hover {
+
+    background-color:burlywood;
+}
+
+#signOutBtn{
+    display: none;
+}
+
+
+
+#logo{
+    display: flex;
+    /* align-content: center; */
+    height: 350px;
+    /* border: 2px solid red; */
+    
+}
+
+#searchbar{
+    display: flex;
+    width: 70%;
+
+    border: 1px,solid black;
+
+}
+
+#wel-logo{
+    max-height:100%;
+     max-width:100%;
+}
+
+.badge{
+
+    font-size: 9px;
+}
+.cards{
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+}
+.hidden{
+    display: none;
+}
+
+
+
+
+#result-page-container{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    max-width: initial;
+}
+/* #nav-bar{
+    width: 100%;
+} */
+/* #nav-logo{
+    height: 100px;
+    display: inline-block;
+} */
+
+/* #nav-searchbar{
+    display: inline-block;
+    width: 70%;
+
+    border: 1px,solid black;
+
+} */
+.nav-bar-search{
+    display:flex;
+    flex-direction: row
+}
+
+#nav-logo{
+    height: 200px;
+    display: flex;
+}
+
+#nav-searchbar{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-left: 60px;
+    padding-top: 68px;
+
+
+}
+.nav-form-control{
+    width:900px;
+    height: 50PX;
+
+    
+}
+
+.card-wrapper{
+    flex-wrap:wrap;
+    display: flex;
+    
+    flex-direction: row;
+    width:70%;
+
+}
+
+.individual-card{
+    padding: 20px;
+}
+.empty{
+    margin-right: 300px;
+}
+
+/* fullcard elements css below*/
+
+.card-hidden{
+    /* display: none; */
+}
+
+#fullcard-container{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid blueviolet;
+
+}
+
+#fullcard-header{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    border: 2px solid blueviolet;
+    padding: 10px;
+    /* position: relative; */
+}
+
+#button-container{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    
+}
+
+#img-lable-container{
+    padding: 10px;
+    overflow: hidden;
+    height: 356px;
+    width: 100%;
+    border: 2px solid blueviolet;
+
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-content: center; */
+}
+
+#img-lable-container img{
+    width: 100%; 
+
+
+}
+
+#label-container{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    right: 260px;
+    top: 200px;
+
+}
+
+/* add padding for label , which how to select?*/
+
+#ingredient-nutri-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    width: 700px;
+    padding: 10px;
+}
+
+
+#favBtn{
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+#favBtn .tooltiptext{
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+#favBtn .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+  }
+  
+  #favBtn:hover .tooltiptext {
+    visibility: visible;
+  }

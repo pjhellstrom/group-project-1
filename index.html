@@ -3,87 +3,335 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src=“https://cdn.jsdelivr.net/npm/chart.js@2.8.0”></script>
+    <script src=“https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js”></script>
+    <script src=“https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js”></script>
+    <script src="./assets/javascript/app.js"></script>
+    <script src="./assets/javascript/db.js"></script>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
-    <script type="text/javascript" src="./db.js"></script>  
-    <script type="text/javascript" src="./jonas.js"></script>   
-    <title>Group Project 1</title>
+
+    <title>Emergency Recipe</title>
 </head>
 <body>
-    <input id="inputBar" placeholder="Look up an ingredient"></input>
-    <button id="searchBtn">
-        Search
-    </button>
-    <button id="addUserBtn">
-        Add me
-    </button>
-    <button id="signInBtn">
-        Sign in
-    </button>
-    <button id="signOutBtn">
-        Sign out
-    </button>
+    <!--main page -->
 
-    <div id="signUpWrapper" style="border: solid 2px black; height: 200px; width: 200px; display:none;">   
-        <input id="usernameInput" placeholder="Input username and click create user"></input> 
-        <ul>
-            <li>
-                <input type="checkbox" name="preference" value="vegan"> Vegan
-            </li>
-            <li>
-                <input type="checkbox" name="preference" value="vegetarian"> Vegetarian
-            </li>
-            <li>
-                <input type="checkbox" name="preference" value="peanutfree"> Peanut-free
-            </li>
-            <li>
-                <input type="checkbox" name="preference" value="treenutfree"> Tree-nut-free
-            </li>
-            <li>
-                <input type="checkbox" name="preference" value="alcoholfree"> Alcohol-free
-            </li>            
-        </ul>
-        <button id="createUserBtn">
-            Create new user
-        </button> 
+
+    <div class = "container" id="main-page-container"   >
+    <!--registration form-->
+        <div id="registration-form">
+            <button id="addUserBtn">sign up</button>
+            <button id="signInBtn">sign in</button>
+            <button id="signOutBtn">sign out</button>
+
+        </div>
+
+        <div class="form">
+            <div class="addUserForm">
+                <input type="text"placeholder="Your Name">
+                <div class="checkbox">
+                    <label><input type="checkbox" value="">Vegan</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Vegetarian</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Peanut-free</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Tree-nut-free</label>
+                    </div>
+                    <div class="checkbox">
+                    <label><input type="checkbox" value="">Alcohol-free</label>
+                    </div>
+                <button id ="addUserFormBtn" >Create New User</button>
+                    
+            </div>
+            <div class="signInForm">
+                <input type="text"placeholder="Input your name and click">
+                <button id ="signInFormBtn" >Sign in</button>
+            </div>
+        </div>
+        
+    
+
+ 
+
+
+
+    
+    <!--registration form end-->
+            <div id = "logo">
+                <img src="./assets/images/imageedit_1_4643196240.png" alt="logo" id="wel-logo">
+            </div>  
+            <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+            <div id = "searchbar">
+                    <div class="input-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                            <div class="input-group-append">
+                                <button class="btn btn-success" type="button" id="searchBtn">Love it</button>
+                            </div>
+                        </div>
+                </div>           
+             </div> 
+            
+
+            <div class="cards">
+
+                    <div class="col-4">
+                        <div class="card" style="width: 10rem; height: 18rem;">
+                            <img class="card-img-top" src="./assets/images/test.jpg" alt="Card image cap" >
+                            <div class="card-body">
+                                    <h5 class="card-title" style="font-size:  20px;">Card title</h5>
+                                    <span>
+                                            <span class="badge badge-primary">Primary</span>
+                                            <span class="badge badge-secondary">Secondary</span>
+                                            <span class="badge badge-success">Success</span>
+                                            <span class="badge badge-danger">Danger</span>
+                                    </span>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-4">
+                            <div class="card" style="width: 10rem; height: 18rem;">
+                                <img class="card-img-top" src="./assets/images/test.jpg" alt="Card image cap" >
+                                <div class="card-body">
+                                        <h5 class="card-title" style="font-size:  20px;">Card title</h5>
+                                        <span>
+                                                <span class="badge badge-primary">Primary</span>
+                                                <span class="badge badge-secondary">Secondary</span>
+                                                <span class="badge badge-success">Success</span>
+                                                <span class="badge badge-danger">Danger</span>
+                                        </span>
+                                </div>
+    
+    
+                            </div>
+                        </div>
+                        <div class="col-4">
+                                <div class="card" style="width: 10rem; height: 18rem;">
+                                    <img class="card-img-top" src="./assets/images/test.jpg" alt="Card image cap" >
+                                    <div class="card-body">
+                                            <h5 class="card-title" style="font-size:  20px;">Card title</h5>
+                                            <span>
+                                                    <span class="badge badge-primary">Primary</span>
+                                                    <span class="badge badge-secondary">Secondary</span>
+                                                    <span class="badge badge-success">Success</span>
+                                                    <span class="badge badge-danger">Danger</span>
+                                            </span>
+                                    </div>
+        
+        
+                                </div>
+                            </div>
+                </div>
+    </div>
+    <!-- main page  end -->
+
+    <!--result page -->
+    <div class="hidden">
+    <div class="container" id = "result-page-container">
+        <div class ="nav-bar-search">
+                <img src="./assets/images/imageedit_1_4643196240.png" alt="logo" id="nav-logo">
+                <div id = "nav-searchbar">
+                    <input type="text" class="nav-form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    <div class="nav-input-group-append">
+                        <button class="btn btn-success" type="button" id="nav-search-btn">Love it</button>
+                    </div>
+                 </div>
+        </div>
+
+         <div class="card-wrapper">
+
+        
+            <div class="individual-card">
+                    <div class="card" style="width: 10rem; height: 18rem;">
+                        <img class="card-img-top" src="./assets/images/test.jpg" alt="Card image cap" >
+                        <div class="card-body">
+                                <h5 class="card-title" style="font-size:  20px;">Card title</h5>
+                                <span>
+                                        <span class="badge badge-primary">Primary</span>
+                                        <span class="badge badge-secondary">Secondary</span>
+                                        <span class="badge badge-success">Success</span>
+                                        <span class="badge badge-danger">Danger</span>
+                                </span>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="individual-card">
+                        <div class="card" style="width: 10rem; height: 18rem;">
+                            <img class="card-img-top" src="./assets/images/test.jpg" alt="Card image cap" >
+                            <div class="card-body">
+                                    <h5 class="card-title" style="font-size:  20px;">Card title</h5>
+                                    <span>
+                                            <span class="badge badge-primary">Primary</span>
+                                            <span class="badge badge-secondary">Secondary</span>
+                                            <span class="badge badge-success">Success</span>
+                                            <span class="badge badge-danger">Danger</span>
+                                    </span>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="individual-card">
+                            <div class="card" style="width: 10rem; height: 18rem;">
+                                <img class="card-img-top" src="./assets/images/test.jpg" alt="Card image cap" >
+                                <div class="card-body">
+                                        <h5 class="card-title" style="font-size:  20px;">Card title</h5>
+                                        <span>
+                                                <span class="badge badge-primary">Primary</span>
+                                                <span class="badge badge-secondary">Secondary</span>
+                                                <span class="badge badge-success">Success</span>
+                                                <span class="badge badge-danger">Danger</span>
+                                        </span>
+                                </div>
+    
+    
+                            </div>
+                        </div>
+                        <div class="individual-card">
+                                <div class="card" style="width: 10rem; height: 18rem;">
+                                    <img class="card-img-top" src="./assets/images/test.jpg" alt="Card image cap" >
+                                    <div class="card-body">
+                                            <h5 class="card-title" style="font-size:  20px;">Card title</h5>
+                                            <span>
+                                                    <span class="badge badge-primary">Primary</span>
+                                                    <span class="badge badge-secondary">Secondary</span>
+                                                    <span class="badge badge-success">Success</span>
+                                                    <span class="badge badge-danger">Danger</span>
+                                            </span>
+                                    </div>
+        
+        
+                                </div>
+                            </div>
+                            <div class="individual-card">
+                                    <div class="card" style="width: 10rem; height: 18rem;">
+                                        <img class="card-img-top" src="./assets/images/test.jpg" alt="Card image cap" >
+                                        <div class="card-body">
+                                                <h5 class="card-title" style="font-size:  20px;">Card title</h5>
+                                                <span>
+                                                        <span class="badge badge-primary">Primary</span>
+                                                        <span class="badge badge-secondary">Secondary</span>
+                                                        <span class="badge badge-success">Success</span>
+                                                        <span class="badge badge-danger">Danger</span>
+                                                </span>
+                                        </div>
+            
+            
+                                    </div>
+                                </div>
+                                <div class="individual-card">
+                                        <div class="card" style="width: 10rem; height: 18rem;">
+                                            <img class="card-img-top" src="./assets/images/test.jpg" alt="Card image cap" >
+                                            <div class="card-body">
+                                                    <h5 class="card-title" style="font-size:  20px;">Card title</h5>
+                                                    <span>
+                                                            <span class="badge badge-primary">Primary</span>
+                                                            <span class="badge badge-secondary">Secondary</span>
+                                                            <span class="badge badge-success">Success</span>
+                                                            <span class="badge badge-danger">Danger</span>
+                                                    </span>
+                                            </div>
+                
+                
+                                        </div>
+                                    </div>    
+
+
+        
+        </div>
+    </div>
+</div>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+                           
+
+     <!--result page  end -->
+    <!--full card   start-->
+
+    <div class=" card-hidden">
+        <div class="container" id="fullcard-container">
+            <div id="fullcard-header">
+                
+                <div id="button-container">
+                    
+                    <button id="favBtn">❤
+                        <span class="tooltiptext">Favorate</span>
+                    </button>
+                    <button id="plusBtn">+</button>
+                    <button id="closeBtn">X</button>
+                </div>
+                <h1>Name</h1>
+            </div>
+            <div id="img-lable-container">
+                <img src="./assets/images/test.jpg">
+                <div id="label-container">
+                    <span id="lapel1" class="badge badge-primary">Primary</span>
+                    <span id="lapel2" class="badge badge-secondary">Secondary</span>
+                    <span id="lapel3" class="badge badge-success">Success</span>
+                    <span id="lapel4" class="badge badge-danger">Danger</span>    
+                    <!-- function that loop the list and append each item to this list -->
+                    <!-- <ul id="health-label-list">
+                        
+                    </ul> -->
+                </div>
+            </div>
+            <div id="ingredient-nutri-container">
+                <div id="ingredient">
+                    <ul id="ingredient-list">
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                    </ul>
+                </div>
+                <div id="nutri-List">
+                    <ul>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                        <li>ingredients</li>
+                    </ul>
+                </div>
+            </div>
+            <canvas>
+                <!-- ??? -->
+            </canvas>
+
+        </div>
     </div>
 
-    <div id="signInWrapper" style="border: solid 2px black; height: 200px; width: 200px; display:none;">   
-        <input id="signInInput" placeholder="Input username and click sign in"></input> 
-        <button id="signInConfirmBtn">
-            Sign in
-        </button> 
-    </div>
 
-    <style>
-        * {
-            font-size: 0.9rem;
-            font-family: Helvetica, sans-serif;
-        }
-        ul {
-            list-style: none;
-        }
-        #card-wrapper {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            max-width: 100vw;
-        }
-        .result-card {
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            margin:15px;
-            border: 2px solid grey;
-            font-size: 1.5rem;
-            font-weight: bold;
-            width: 300px;
-            height:400px;
-        }
-    </style>
+
+    <!--full card end -->
 
 </body>
 </html>
