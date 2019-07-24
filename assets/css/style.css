@@ -104,7 +104,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     max-width: initial;
     justify-content: center;
     align-items: center;
@@ -310,6 +310,11 @@ display: none;
     padding: 10px;
 }
 
+#nutri-list{
+    overflow: hidden;
+    max-height: 350px;
+}
+
 
 #favBtn{
     position: relative;
@@ -456,4 +461,20 @@ display: none;
 #checkbox-container{
     display: flex;
     flex-direction: row;
+}
+
+#mapmapBtn{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+}
+
+.card-title{
+    max-height: 50px;
+    overflow: hidden;
+}
+
+li{
+    padding: 0.25rem;
 }
