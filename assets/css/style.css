@@ -246,6 +246,7 @@ display: none;
     align-items: center;
     z-index: 200;
     background-color: aliceblue;
+    margin-bottom: 100px;
     
 }
 
@@ -254,13 +255,14 @@ display: none;
 
 #fullcard-container{
     overflow: scroll;
-    height: 90vh;
+    /* height: 85vh; */
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 3px solid black;
+    
     
 
 }
