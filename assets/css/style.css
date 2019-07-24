@@ -279,7 +279,7 @@ display: none;
     overflow: hidden;
     height: 356px;
     width: 100%;
-    border: 2px solid blueviolet;
+    /* border: 2px solid blueviolet; */
 
 }
 
@@ -293,8 +293,9 @@ display: none;
     position: absolute;
     display: flex;
     flex-direction: row;
-    right: 260px;
-    top: 200px;
+    left: 26px;
+    top: 100px;
+    
 
 }
 
