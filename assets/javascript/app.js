@@ -256,10 +256,10 @@ function listHealthLabels(i, size) {
 });//end $(document)ready()
 
 // Maps API
-(document).on("click", "#plusBtn", function() {
+$(document).on("click", "#plusBtn", function() {
    
 $("#mapHide").show();
-    
+
 var map;
 var service;
 var infowindow;
