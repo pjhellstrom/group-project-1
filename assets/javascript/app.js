@@ -19,10 +19,6 @@ $(document).ready( function() {
 
 //-----------------------------------------
 
-
-
-
-
     //populate intro cards
 
     // Click listener for search button
@@ -94,19 +90,19 @@ $(document).ready( function() {
 function populateCard(i) {
     //Creates results mini cards
     //Return list of 3 top ingredients
-    listIngredients(i, 3);
     listHealthLabels(i, 2);
     //Append card to DOM
     $("#card-wrapper").append(`
     <div class="result-card" id="card-${i}">
-        <img src=${results[i].recipe.image}>
-        <span>${results[i].recipe.label}</span>
-        <ul>
-            ${ingredients}
-        </ul>
-        <ul>
-            ${healthLabels}
-        </ul>        
+        <div class="card">
+            <img class="card-img-top" src=${results[i].recipe.image} alt="Card image cap" >
+            <div class="card-body">
+                    <h5 class="card-title" style="font-size:  20px;">${results[i].recipe.label}</h5>
+                    <ul>
+                    ${healthLabels}
+                    </ul>  
+            </div>
+        </div>      
     </div>
     `);
     //Creates full cards (hidden by default and expanded to show on click)
@@ -117,20 +113,38 @@ function populateCard(i) {
     //Append card to DOM
     $("#card-wrapper").append(`
     <div class="full-card" id="full-card-${i}" style="display: none;">
-        <button id="closeBtn">X</button>
-        <img src=${results[i].recipe.image}>
-        <span>${results[i].recipe.label} (${Math.round(results[i].recipe.calories)} cal)</span>
-        <ul>
-            ${ingredients}
-        </ul>
-        <ul>
-            ${nutrition}
-        </ul>
-        <ul>
-            ${healthLabels}
-        </ul>
-        <canvas id="nutriChart">
-        </canvas>
+        <div class="container" id="fullcard-container">
+            <div id="fullcard-header">
+                <div id="button-container">
+                    <button id="favBtn">❤
+                        <span class="tooltiptext">Favorate</span>
+                    </button>
+                    <button id="plusBtn">+</button>
+                    <button id="closeBtn">X</button>
+                </div>
+                <h1><span>${results[i].recipe.label} (${Math.round(results[i].recipe.calories)} cal)</span></h1>
+            </div>
+            <div id="img-lable-container">
+                <img src=${results[i].recipe.image}>
+                <div id="label-container">
+                    ${healthLabels}
+                </div>
+            </div>
+            <div id="ingredient-nutri-container">
+                <div id="ingredient">
+                    <ul id="ingredient-list">
+                        ${ingredients}
+                    </ul>
+                </div>
+                <div id="nutri-List">
+                    <ul>
+                        ${nutrition}
+                    </ul>
+                </div>
+            </div>
+            <canvas>
+            </canvas>
+        </div>
     </div>
     `);    
 };    
@@ -162,7 +176,7 @@ function listHealthLabels(i, size) {
     healthLabels = "";
     for (var j = 0; j < size; j++) {
         healthLabels += (`
-        <li>${results[i].recipe.healthLabels[j]}
+        <li class="health-label badge badge-primary">${results[i].recipe.healthLabels[j]}
         </li>
         `);
     };
