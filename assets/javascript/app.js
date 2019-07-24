@@ -2,7 +2,6 @@
 let q = "";
 let maxResults = 6;
 let offset = 6;
-let cardCount = 0;
 let results = "";
 let listIngredients = "";
 let cardSelection = "";
@@ -17,13 +16,11 @@ $(document).ready( function() {
 
 // On welcome screen ------------------------------------------------------------
 
-//-----------------------------------------
-
     //populate intro cards
+    //*** JONAS TO DO */
 
     // Click listener for search button
     $("#searchBtn").on("click", function() {
-
 
         //Reject if search bar is empty
         if ($("#inputBar").val()=="") {
@@ -31,7 +28,6 @@ $(document).ready( function() {
         }
 
         //Hide search screen container and show results screen container
-        // ******
         $("#main-page-container").hide();
         $(".hidden").show();
 
@@ -50,7 +46,6 @@ $(document).ready( function() {
                 //Make cards for each hit in response
                 for (var i = 0; i < results.length; i++) {
                     populateCard(i);
-                    console.log()
                 };
         });
     });
@@ -90,7 +85,7 @@ $(document).ready( function() {
 function populateCard(i) {
     //Creates results mini cards
     //Return list of 3 top ingredients
-    listHealthLabels(i, 2);
+    listHealthLabels(i, results[i].recipe.healthLabels.length);
     //Append card to DOM
     $("#card-wrapper").append(`
     <div class="result-card" id="card-${i}">
@@ -111,16 +106,20 @@ function populateCard(i) {
     listNutrition(i, results[i].recipe.digest.length);
     listHealthLabels(i, results[i].recipe.healthLabels.length);    
     //Append card to DOM
-    $("#card-wrapper").append(`
+    $("#full-card-wrapper").append(`
     <div class="full-card" id="full-card-${i}" style="display: none;">
         <div class="container" id="fullcard-container">
             <div id="fullcard-header">
                 <div id="button-container">
                     <button id="favBtn">❤
-                        <span class="tooltiptext">Favorate</span>
+                        <span class="tooltiptext">Favourite</span>
                     </button>
-                    <button id="plusBtn">+</button>
-                    <button id="closeBtn">X</button>
+                    <button id="plusBtn">+
+                        <span class="tooltiptext">Add Shopping List</span>
+                    </button>
+                    <button id="closeBtn">X
+                        <span class="tooltiptext">Close</span>
+                    </button>
                 </div>
                 <h1><span>${results[i].recipe.label} (${Math.round(results[i].recipe.calories)} cal)</span></h1>
             </div>
@@ -144,6 +143,8 @@ function populateCard(i) {
             </div>
             <canvas>
             </canvas>
+            <a href="${results[i].recipe.url}">Take me to the full recipe!
+            </a>
         </div>
     </div>
     `);    
