@@ -204,19 +204,20 @@
     justify-content: center;
     align-items: center;
 }
-.nagBar{
+/* .nagBar{
     display: flex;
     flex-direction: row;
 }
 .jpg{
     position: relative;  
-}
-
+} */
+/* 
 #lapel1,#lapel2,#lapel3,#lapel4{
     position: absolute;
-}
+    height: 20px;
+} */
 
-.recp{
+/* .recp{
     display: flex;
     flex-direction: row;
 }
@@ -227,7 +228,7 @@
 .nutri{
     display: flex;
     flex-direction: column;
-}
+} */
 /* .hiddenFullCard{
 display: none;
 } */
@@ -361,4 +362,11 @@ display: none;
 #nutri-li{
     font-size: 10px;
     /* color: aqua; */
+}
+
+
+/* map elements --------*/
+
+#mapHide{
+    display: none;
 }
