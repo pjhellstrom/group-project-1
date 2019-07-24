@@ -41,10 +41,10 @@ $(document).ready( function() {
 
         // Set filters for search
             //Filter variables
-        var lc, va, vg, pf, tnf, af;
+        var va, vg, pf, tnf, af; //lc, 
         
-        if($("#lowcarb").is(':checked')){lc = "&diet=low-carb"} //&diet=low-carb is what is shown in an example, why isn't it working??? //xxx
-        else{lc=""};
+        // if($("#lowcarb").is(':checked')){lc = "&diet=low-carb"} //&diet=low-carb is what is shown in an example, why isn't it working??? //xxx
+        // else{lc=""};
         if($("#vegan").is(':checked')){va = "&health=vegan"}
         else{va=""};
         if($("#vegetarian").is(':checked')){vg = "&health=vegetarian"}
@@ -59,15 +59,15 @@ $(document).ready( function() {
         //Construct Query URL
 
         //Most filters seem to work, but low-carb doesn't. Only diet filter I've tested...
-        queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}${lc}${va}${vg}${pf}${tnf}${af}`;
-        console.log(queryURL); //xxx
+        queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}${va}${vg}${pf}${tnf}${af}`;
+        // console.log(queryURL);
       
         // API call and DOM manipulation
         $.ajax({
             url: queryURL,
             method: "GET"
             }).then(function(response) {
-                console.log(response); //xxx
+                // console.log(response);
                 //Set response.hits array to var results
                 results = response.hits;
                 //Make cards for each hit in response
