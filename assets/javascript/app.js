@@ -80,7 +80,7 @@ $(document).ready( function() {
         else{af=""};
     
         queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}${va}${vg}${pf}${tnf}${af}`;
-        
+        console.log("queryURL: "+queryURL)
         //API call and DOM manipulation
         $.ajax({
             url: queryURL,
