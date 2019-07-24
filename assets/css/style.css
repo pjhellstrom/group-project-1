@@ -110,21 +110,10 @@
     align-items: center;
     flex-direction: column;
 }
-/* #nav-bar{
-    width: 100%;
-} */
-/* #nav-logo{
-    height: 100px;
-    display: inline-block;
-} */
-
-/* #nav-searchbar{
-    display: inline-block;
-    width: 70%;
-
-    border: 1px,solid black;
-
-} */
+#searchBtn2{
+    width: 120px;
+    font-size: 20px;
+}
 .nav-bar-search{
     display:flex;
     flex-direction: row
@@ -138,7 +127,7 @@
 #nav-searchbar{
     display: flex;
     flex-direction: row;
-    width: 70%;
+    width: 65%;
     padding-left: 10px;
     padding-top: 68px;
 
