@@ -445,6 +445,11 @@ display: none;
 
 #mapHide{
     display: none;
+
+}
+
+#map {
+    height: 100%;
 }
 
 #checkbox-container{
