@@ -174,7 +174,6 @@ function listHealthLabels(i, size) {
     return healthLabels;
 };
 
-<<<<<<< HEAD:app.js
 // function createChart() {
 // Chart.js
 var ctx = $('#nutriChart');
@@ -193,6 +192,4 @@ var chart = new Chart(ctx, {
 // return chart;
 // }//end createChart
 
-=======
->>>>>>> 4f781b6306cd5365eb9e552d5ff5ac3202563df7:assets/javascript/jonas.js
 });//end $(document)ready()
