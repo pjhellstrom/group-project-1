@@ -17,7 +17,38 @@ $(document).ready( function() {
 // On welcome screen ------------------------------------------------------------
 
     //populate intro cards
-    //*** JONAS TO DO */
+    $("#intro-card-0").append(`
+        <div class="result-card">
+            <div class="card">
+            <img class="card-img-top" src="https://www.edamam.com/web-img/90d/90d94b734229974e1931334baf076a8a.jpg" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title" style="font-size:  20px;">Shrimp Samosas</h5>
+            <ul><li class="health-label badge badge-primary">Sugar-Conscious</li><li class="health-label badge badge-primary">Peanut-Free</li></ul>  
+            </div>
+            </div>      
+        </div>
+    `)
+    $("#intro-card-1").append(`
+    <div class="result-card">
+        <div class="card">
+        <img class="card-img-top" src="https://www.edamam.com/web-img/ae7/ae7a816e77e5cad667bd59ffda26d230" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title" style="font-size:  20px;">Overnight Oats recipes</h5>
+        <ul><li class="health-label badge badge-primary">Vegetarian</li><li class="health-label badge badge-primary">Peanut-Free</li></ul>  
+        </div>
+        </div>      
+    </div>
+    `)
+    $("#intro-card-2").append(`
+    <div class="result-card">
+        <div class="card">
+        <img class="card-img-top" src="https://www.edamam.com/web-img/ec5/ec5b5a864df655b2bb9fea6630970fae.jpg" alt="Card image cap">
+        <div class="card-body"><h5 class="card-title" style="font-size:  20px;">Perfect Grilled Steak</h5>
+        <ul><li class="health-label badge badge-primary">Sugar-Conscious</li><li class="health-label badge badge-primary">Peanut-Free</li></ul>  
+        </div>
+        </div>      
+    </div>
+    `)
 
     // Click listener for search button
     $(document).on("click", "#searchBtn", function() {
