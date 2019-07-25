@@ -56,17 +56,13 @@
 
 #logo{
     display: flex;
-    /* align-content: center; */
     height: 350px;
-    /* border: 2px solid red; */
 }
 
 #searchbar{
     display: flex;
     width: 70%;
-
     border: 1px,solid black;
-
 }
 
 #wel-logo{
@@ -140,15 +136,40 @@
 
 .result-card{
     cursor: pointer;
-    padding: 10px;
-    height: 380px;
+    height: 250px;
     width: 250px;
-    display: flex;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 7px;
+    box-shadow: 5px 5px 15px #CCC;
 }
 
-.card-title{
-    font-size:  20px;
+.result-card h5{
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    padding: 5px;
+    font-size: 15pt;
+    font-weight: bold;
+    width: 100%;
+    min-height: 50px;
+    color: #FFF;
+    background-color: rgba(82, 82, 82, 0.9);
 }
+
+.result-card ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.result-card li {
+    margin: 5px;
+}
+
 #nav-search-btn{
     height: 50px;
     color: rgb(252,220,16);
@@ -297,7 +318,7 @@ display: none;
 }
 
 #nutri-list{
-    overflow: hidden;
+    overflow: scroll;
     width: 200px;
     max-height: 230px;
 }

@@ -21,9 +21,7 @@ $(document).ready( function() {
         <div class="result-card">
             <div class="card">
             <img class="card-img-top" src="https://www.edamam.com/web-img/90d/90d94b734229974e1931334baf076a8a.jpg" alt="Card image cap">
-            <div class="card-body">
-            <h5 class="card-title" style="font-size:  20px;">Shrimp Samosas</h5>
-            <ul><li class="health-label badge badge-primary">Sugar-Conscious</li><li class="health-label badge badge-primary">Peanut-Free</li></ul>  
+            <div class="card-body"><h5 class="card-title" style="font-size:  20px;">Shrimp Samosas</h5>
             </div>
             </div>      
         </div>
@@ -32,9 +30,7 @@ $(document).ready( function() {
     <div class="result-card">
         <div class="card">
         <img class="card-img-top" src="https://www.edamam.com/web-img/ae7/ae7a816e77e5cad667bd59ffda26d230" alt="Card image cap">
-        <div class="card-body">
-        <h5 class="card-title" style="font-size:  20px;">Overnight Oats recipes</h5>
-        <ul><li class="health-label badge badge-primary">Vegetarian</li><li class="health-label badge badge-primary">Peanut-Free</li></ul>  
+        <div class="card-body"><h5 class="card-title" style="font-size:  20px;">Overnight Oats</h5>
         </div>
         </div>      
     </div>
@@ -44,7 +40,6 @@ $(document).ready( function() {
         <div class="card">
         <img class="card-img-top" src="https://www.edamam.com/web-img/ec5/ec5b5a864df655b2bb9fea6630970fae.jpg" alt="Card image cap">
         <div class="card-body"><h5 class="card-title" style="font-size:  20px;">Perfect Grilled Steak</h5>
-        <ul><li class="health-label badge badge-primary">Sugar-Conscious</li><li class="health-label badge badge-primary">Peanut-Free</li></ul>  
         </div>
         </div>      
     </div>
@@ -125,15 +120,11 @@ function populateCard(i) {
     //Append card to DOM
     $("#card-wrapper").prepend(`
     <div class="result-card" id="card-${i}">
-        <div class="card">
             <img class="card-img-top" src=${results[i].recipe.image} alt="Card image cap" >
-            <div class="card-body">
-                    <h5 class="card-title" style="font-size:  20px;">${results[i].recipe.label}</h5>
-                    <ul>
-                    ${healthLabels}
-                    </ul>  
-            </div>
-        </div> 
+            <h5 class="card-title">${results[i].recipe.label}</h5>
+            <ul id="card-health-labels">
+                ${healthLabels}
+            </ul>
     </div>
     `);
     //Creates full cards (hidden by default and expanded to show on click)
@@ -256,6 +247,9 @@ function listNutrition(i, size) {
 
 function listHealthLabels(i, size) {
     healthLabels = "";
+    if( size > 4 ) {
+        size = 4
+    }
     for (var j = 0; j < size; j++) {
         healthLabels += (`
         <li class="health-label badge badge-primary">${results[i].recipe.healthLabels[j]}
