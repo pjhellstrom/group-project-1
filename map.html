@@ -4,7 +4,7 @@
         <title>Place Example</title>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
-        <script src="assets/javascript/simplemap.js"></script>
+        
         <style>
             #map {
                 height: 100%;
@@ -18,6 +18,9 @@
     </head>
     <body>
         <div id="map"></div>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwDkSGWhB9BoOzauqbnvDz1C9COOHAyKg&libraries=places&callback=initMap" async defer></script>
-    </body>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="assets/javascript/simplemap.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?callback=createMap&libraries=places&key=AIzaSyBwDkSGWhB9BoOzauqbnvDz1C9COOHAyKg&callback=initMap" type="text/javascript"></script>
+        </body>
 </html>
