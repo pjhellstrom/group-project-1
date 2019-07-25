@@ -105,8 +105,9 @@
 }
 
 #searchBtn2{
-    width: 120px;
-    font-size: 20px;
+    width: 140px;
+    height: 37px;
+    font-size: 1rem;
 }
 
 .nav-bar-search{
@@ -122,7 +123,7 @@
 #nav-searchbar{
     display: flex;
     flex-direction: row;
-    width: 65%;
+    width: 60%;
     padding-left: 10px;
     padding-top: 68px;
 }
