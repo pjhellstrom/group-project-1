@@ -21,8 +21,6 @@ $(document).ready( function() {
         <div class="result-card">
             <div class="card">
             <img class="card-img-top" src="https://www.edamam.com/web-img/90d/90d94b734229974e1931334baf076a8a.jpg" alt="Card image cap">
-            <div class="card-body"><h5 class="card-title" style="font-size:  20px;">Shrimp Samosas</h5>
-            </div>
             </div>      
         </div>
     `)
@@ -30,8 +28,6 @@ $(document).ready( function() {
     <div class="result-card">
         <div class="card">
         <img class="card-img-top" src="https://www.edamam.com/web-img/ae7/ae7a816e77e5cad667bd59ffda26d230" alt="Card image cap">
-        <div class="card-body"><h5 class="card-title" style="font-size:  20px;">Overnight Oats</h5>
-        </div>
         </div>      
     </div>
     `)
@@ -39,8 +35,6 @@ $(document).ready( function() {
     <div class="result-card">
         <div class="card">
         <img class="card-img-top" src="https://www.edamam.com/web-img/ec5/ec5b5a864df655b2bb9fea6630970fae.jpg" alt="Card image cap">
-        <div class="card-body"><h5 class="card-title" style="font-size:  20px;">Perfect Grilled Steak</h5>
-        </div>
         </div>      
     </div>
     `)
@@ -137,6 +131,9 @@ function populateCard(i) {
     <div class="full-card" id="full-card-${i}" style="display: none;">
         <div class="container" id="fullcard-container">
             <div id="fullcard-header">
+                <div>
+                    <h1><span>${results[i].recipe.label} (${Math.round(results[i].recipe.calories)} cal)</span></h1>
+                </div>
                 <div id="button-container">
                     <button id="favBtn">❤
                         <span class="tooltiptext">Favourite</span>
@@ -144,7 +141,6 @@ function populateCard(i) {
                     <button id="closeBtn">X
                     </button>
                 </div>
-                <h1><span>${results[i].recipe.label} (${Math.round(results[i].recipe.calories)} cal)</span></h1>
             </div>
             <div id="img-lable-container">
                 <img src=${results[i].recipe.image}>
@@ -203,13 +199,13 @@ function populateCard(i) {
                 </script>
                 </div> 
             </div>
-            <a id="recipe-link-wrapper href="${results[i].recipe.url}" target="_empty">Take me to the full recipe!
-            </a>
             <div id="ingredient-nutri-container">
                 <div id="ingredient">
                     <ul id="ingredient-list">
                         ${ingredients}
                     </ul>
+                    <a href="${results[i].recipe.url}" target="_empty">Full Recipe
+                    </a>
                 </div>
                 <div id="nutrition">
                     <ul id="nutri-list">
@@ -247,8 +243,8 @@ function listNutrition(i, size) {
 
 function listHealthLabels(i, size) {
     healthLabels = "";
-    if( size > 4 ) {
-        size = 4
+    if( size > 3 ) {
+        size = 3
     }
     for (var j = 0; j < size; j++) {
         healthLabels += (`

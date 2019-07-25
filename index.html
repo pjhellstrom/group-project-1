@@ -12,7 +12,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.3.0/firebase-database.js"></script>
     <script src="./assets/javascript/app.js"></script>
     <script src="./assets/javascript/db.js"></script>
-
+    <script src="https://developer.edamam.com/attribution/badge.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -22,7 +22,7 @@
     <!--main page -->
 
 
-    <div class = "container" id="main-page-container"   >
+    <div class = "container" id="main-page-container">
     <!--registration form-->
         <!-- <div id="registration-form">
             <button id="addUserBtn">sign up</button>
@@ -98,13 +98,21 @@
                 <div id="intro-card-1"></div>
                 <div id="intro-card-2"></div>
             </div>
-    </div>
+
+            <div id="attributions">
+                <div id="edamam-badge" data-color="badge"></div>
+                <div id="google-attribution">
+                    <img src="./assets/images/powered_by_google_on_white_hdpi.png" alt="attrGoogle">
+                </div>
+            </div>
+            <!-- MAP CONTAINER -->
+            <a href ='map.html' target='_empty' > 
+                    <button type="button" class="btn btn-success" id="mapmapBtn" >Where can I get groceries?</button>
+            </a>
+
+        </div>
     <!-- main page  end -->
 
-    <!-- MAP CONTAINER -->
-    <a href ='map.html' target='_empty' > 
-            <button type="button" class="btn btn-success" id="mapmapBtn" >Where can I get groceries?</button>
-    </a>
 
 
 
