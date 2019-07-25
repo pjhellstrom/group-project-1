@@ -21,6 +21,11 @@ $(document).ready( function() {
         <div class="result-card">
             <div class="card">
             <img class="card-img-top" src="https://www.edamam.com/web-img/90d/90d94b734229974e1931334baf076a8a.jpg" alt="Card image cap">
+<<<<<<< HEAD
+=======
+            <div class="card-body">
+            </div>
+>>>>>>> 3d3659f149fb80815973e771ad2e31ea8824be6a
             </div>      
         </div>
     `)
@@ -28,6 +33,11 @@ $(document).ready( function() {
     <div class="result-card">
         <div class="card">
         <img class="card-img-top" src="https://www.edamam.com/web-img/ae7/ae7a816e77e5cad667bd59ffda26d230" alt="Card image cap">
+<<<<<<< HEAD
+=======
+        <div class="card-body">
+        </div>
+>>>>>>> 3d3659f149fb80815973e771ad2e31ea8824be6a
         </div>      
     </div>
     `)
@@ -35,6 +45,11 @@ $(document).ready( function() {
     <div class="result-card">
         <div class="card">
         <img class="card-img-top" src="https://www.edamam.com/web-img/ec5/ec5b5a864df655b2bb9fea6630970fae.jpg" alt="Card image cap">
+<<<<<<< HEAD
+=======
+        <div class="card-body">
+        </div>
+>>>>>>> 3d3659f149fb80815973e771ad2e31ea8824be6a
         </div>      
     </div>
     `)
