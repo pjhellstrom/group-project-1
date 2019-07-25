@@ -21,7 +21,7 @@ $(document).ready( function() {
         <div class="result-card">
             <div class="card">
             <img class="card-img-top" src="https://www.edamam.com/web-img/90d/90d94b734229974e1931334baf076a8a.jpg" alt="Card image cap">
-            <div class="card-body"><h5 class="card-title" style="font-size:  20px;">Shrimp Samosas</h5>
+            <div class="card-body">
             </div>
             </div>      
         </div>
@@ -30,7 +30,7 @@ $(document).ready( function() {
     <div class="result-card">
         <div class="card">
         <img class="card-img-top" src="https://www.edamam.com/web-img/ae7/ae7a816e77e5cad667bd59ffda26d230" alt="Card image cap">
-        <div class="card-body"><h5 class="card-title" style="font-size:  20px;">Overnight Oats</h5>
+        <div class="card-body">
         </div>
         </div>      
     </div>
@@ -39,7 +39,7 @@ $(document).ready( function() {
     <div class="result-card">
         <div class="card">
         <img class="card-img-top" src="https://www.edamam.com/web-img/ec5/ec5b5a864df655b2bb9fea6630970fae.jpg" alt="Card image cap">
-        <div class="card-body"><h5 class="card-title" style="font-size:  20px;">Perfect Grilled Steak</h5>
+        <div class="card-body">
         </div>
         </div>      
     </div>
