@@ -122,9 +122,8 @@ function populateCard(i) {
     //Creates results mini cards
     //Return list of 3 top ingredients
     listHealthLabels(i, results[i].recipe.healthLabels.length);
-    debugger;
     //Append card to DOM
-    $("#card-wrapper").append(`
+    $("#card-wrapper").prepend(`
     <div class="result-card" id="card-${i}">
         <div class="card">
             <img class="card-img-top" src=${results[i].recipe.image} alt="Card image cap" >
@@ -143,7 +142,7 @@ function populateCard(i) {
     listNutrition(i, results[i].recipe.digest.length);
     listHealthLabels(i, results[i].recipe.healthLabels.length);    
     //Append card to DOM
-    $("#full-card-wrapper").append(`
+    $("#full-card-wrapper").prepend(`
     <div class="full-card" id="full-card-${i}" style="display: none;">
         <div class="container" id="fullcard-container">
             <div id="fullcard-header">
@@ -161,17 +160,8 @@ function populateCard(i) {
                 <div id="label-container">
                     ${healthLabels}
                 </div>
-            </div>
-            <a href="${results[i].recipe.url}" target="_empty">Take me to the full recipe!
-            </a>
-            <div id="ingredient-nutri-container">
-                <div id="ingredient">
-                    <ul id="ingredient-list">
-                        ${ingredients}
-                    </ul>
-                </div>
-                <div id="card-chart" style="width: 200px; height: 200px;">
-                <canvas id="myChart-${i}" width="200" height="200"></canvas>
+                <div id="card-chart" style="width: 300px; height: 200px;">
+                <canvas id="myChart-${i}" width="300" height="200"></canvas>
                 <script>
                     var ctx = document.getElementById('myChart-${i}').getContext('2d');
                     var myChart = new Chart(ctx, {
@@ -210,10 +200,26 @@ function populateCard(i) {
                             ],
                                 backgroundColor: ["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)", "rgb(75, 192, 192)"]
                             }]
+                        },
+                        options: {
+                            legend: {
+                                position: "left",
+                                boxWidth: 20
+                            }
                         }
+
                     });
                 </script>
                 </div> 
+            </div>
+            <a id="recipe-link-wrapper href="${results[i].recipe.url}" target="_empty">Take me to the full recipe!
+            </a>
+            <div id="ingredient-nutri-container">
+                <div id="ingredient">
+                    <ul id="ingredient-list">
+                        ${ingredients}
+                    </ul>
+                </div>
                 <div id="nutrition">
                     <ul id="nutri-list">
                         ${nutrition}

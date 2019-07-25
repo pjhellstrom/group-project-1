@@ -1,8 +1,8 @@
 *{
     margin: 0;
     padding: 0;
-    
 }
+
 #main-page-container{
 
     display: flex;
@@ -10,25 +10,24 @@
     align-items: center;
     flex-direction: column;
     max-width: initial;
-    background-image: url("https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+    background-image: url("https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?cs=srgb&dl=beach-calm-clouds-457882.jpg&fm=jpg");
     background-size: cover;
     position: relative;
-
 }
+
 #registration-form{
     position: absolute;
     display: flex;
     flex-direction: row;
     top:10px;
     right: 20px;
-
 }
+
 .hideFrom{
     display: none;
 }
+
 .form{
-
-
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -36,11 +35,6 @@
     top:30px;
     right: 20px;
 }
-
-
-
-
-
 
 #registration-form button{
     padding: 5px;
@@ -60,14 +54,11 @@
     display: none;
 }
 
-
-
 #logo{
     display: flex;
     /* align-content: center; */
     height: 350px;
     /* border: 2px solid red; */
-    
 }
 
 #searchbar{
@@ -96,9 +87,6 @@
     display: none;
 }
 
-
-
-
 #result-page-container{
     display: flex;
     flex-direction: column;
@@ -116,12 +104,12 @@
 }
 .nav-bar-search{
     display:flex;
-    flex-direction: row
+    flex-direction: row;
+    width: 100%;
 }
 
 #nav-logo{
-    height: 200px;
-    display: flex;
+    height: 150px;
 }
 
 #nav-searchbar{
@@ -130,40 +118,32 @@
     width: 65%;
     padding-left: 10px;
     padding-top: 68px;
-
-
 }
+
 .nav-form-control{
     width:900px;
     height: 50PX;
-
-    
 }
 
-
+#nav-bar-input-group {
+    max-height: 35px;
+    width: 100%;
+}
 
 #card-wrapper{
     flex-wrap:wrap;
     display: flex;
-    
     flex-direction: row;
     justify-content: center;
-    width: 80%;
-    
+    width: 90%;
 }
 
 .result-card{
-
     cursor: pointer;
     padding: 10px;
-    width: 300px;
+    height: 380px;
+    width: 250px;
     display: flex;
-    
-}
-
-.card{
-    width: 10rem; 
-    height: 18rem;
 }
 
 .card-title{
@@ -228,98 +208,108 @@ display: none;
 
 #full-card-wrapper{
     position: fixed;
-    top:10px;
-
+    top:20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 200;
-    background-color: aliceblue;
-    margin-bottom: 100px;
-    
+    background-color: #FFF;
 }
 
-
-
-
 #fullcard-container{
-    overflow: scroll;
     z-index: 200;
-
+    width: 700px;
+    height: 700px;
     display: flex;
     position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 3px solid black;
-    
-    
-
+    border: 1px solid rgb(119, 119, 119);
+    border-radius: 15px;
+    box-shadow: 5px 5px 25px #333;
 }
 
 #fullcard-header{
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-
+    text-align: left;
     padding: 10px;
-    /* position: relative; */
+    width: 100%;
+    text-shadow: 2px 2px 5px #DDD;
 }
 
 #button-container{
     position: absolute;
     right: 20px;
     top: 10px;
-    
 }
 
 #img-lable-container{
-    padding: 10px;
     overflow: hidden;
     height: 356px;
     width: 100%;
-    /* border: 2px solid blueviolet; */
-
+    position: relative;
 }
 
 #img-lable-container img{
-    width: 100%; 
-
-
+    width: inherit; 
 }
 
 #label-container{
     position: absolute;
+    right: 10px;
+    top: 10px;
     display: flex;
-    flex-direction: row;
-    left: 26px;
-    top: 100px;
-    
-
+    flex-direction: column;
 }
 
-/* add padding for label , which how to select?*/
+#label-container li {
+    padding: 5px;
+    margin: 7px;
+    font-size: 10pt;
+}
+
+#card-chart {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    bottom: 10px;
+    right: 15px;
+    padding-right: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+}
 
 #ingredient-nutri-container{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    width: inherit;
+}
 
-    width: 700px;
-    padding: 10px;
+#ingredient-list {
+    overflow: hidden;
+    width:400px;
+    max-height: 230px;
+    font-size: 12pt;
 }
 
 #nutri-list{
     overflow: hidden;
-    max-height: 350px;
+    width: 200px;
+    max-height: 230px;
 }
-
 
 #favBtn{
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black;
+    margin-right: 10px;
+    background: unset;
+    border: none;
+    font-size: 25pt;
+    cursor: pointer;
 }
 
 #favBtn .tooltiptext{
@@ -389,11 +379,15 @@ display: none;
     visibility: visible;
   }
 
-
   #closeBtn{
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted black;
+    background: unset;
+    border: none;
+    font-size: 25pt;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 #closeBtn .tooltiptext{
@@ -422,36 +416,23 @@ display: none;
     border-color: transparent transparent black transparent;
   }
   
-  #closeBtn:hover .tooltiptext {
+#closeBtn:hover .tooltiptext {
     visibility: visible;
-  }
-
-
-
-/* .health-label{
-
-} */
-#nutri-li{
-    font-size: 10px;
-    /* color: aqua; */
 }
 
+#nutri-li{
+    font-size: 10px;
+}
 
 /* map elements --------*/
 
 #mapHide{
-    /* display: none; */
-
-    /* position: fixed;
-    top:10px; */
-
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index:20000;
     background-color:red;
     margin-bottom: 100px;
-
 }
 
 #map {
@@ -461,20 +442,31 @@ display: none;
 #checkbox-container{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin:10px;
+    font-weight: bold;
+}
+
+#checkbox-container label {
+    margin:5px;
+}
+
+.checkbox input {
+    margin: 3px;
+    cursor: pointer;
 }
 
 #mapmapBtn{
     position: fixed;
     right: 20px;
     bottom: 20px;
-
+    z-index: 500;
+    box-shadow: 5px 5px 10px #777;
+    font-weight: bold;
 }
 
 .card-title{
     max-height: 50px;
     overflow: hidden;
-}
-
-li{
-    padding: 0.25rem;
 }

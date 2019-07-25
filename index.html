@@ -24,13 +24,13 @@
 
     <div class = "container" id="main-page-container"   >
     <!--registration form-->
-        <div id="registration-form">
+        <!-- <div id="registration-form">
             <button id="addUserBtn">sign up</button>
             <button id="signInBtn">sign in</button>
             <button id="signOutBtn">sign out</button>
 
-        </div>
-        <div class="hideFrom"> 
+        </div> -->
+        <!-- <div class="hideFrom"> 
         <div class="form">
             <div class="addUserForm">
                 <input type="text"placeholder="Your Name">
@@ -57,29 +57,24 @@
                 <button id ="signInFormBtn" >Sign in</button>
             </div>
         </div>
-    </div> 
-    
-
- 
-
-
-
+    </div>  -->
     
     <!--registration form end-->
+
             <div id = "logo">
                 <img src="./assets/images/imageedit_1_4643196240.png" alt="logo" id="wel-logo">
             </div>  
             
-            <div id = "searchbar">
+            <div id="searchbar">
                     <div class="input-group">
                         <div class="input-group">
-                            <input type="text" class="form-control" id="inputBar" placeholder="Look up some ingredients" aria-label="" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" id="inputBar" placeholder="What's in your fridge today?" aria-label="" aria-describedby="basic-addon1">
                             <div class="input-group-append">
-                                <button class="btn btn-success" type="button" id="searchBtn">Love it</button>
+                                <button class="btn btn-primary" type="button" id="searchBtn">Love it</button>
                             </div>
                         </div>
                 </div>           
-             </div> 
+            </div> 
              <div id="checkbox-container">
                     <div class='checkbox'>
                             <label><input type='checkbox' id='filter-vegan' value=''>Vegan</label>
@@ -98,33 +93,17 @@
                     </div>
              </div>
             
-
             <div class="cards">
-
-                <!-- <div id="intro-card-0"></div>
-
+                <div id="intro-card-0"></div>
                 <div id="intro-card-1"></div>
-
-                <div id="intro-card-2"></div> -->
-
-
-            <div id="intro-card-0"></div>
-
-                <div id="intro-card-1"></div>
-
-
                 <div id="intro-card-2"></div>
-
-
-                </div>
+            </div>
     </div>
     <!-- main page  end -->
 
     <!-- MAP CONTAINER -->
     <a href ='map.html' target='_empty' > 
-            <button type="button" class="btn btn-success" id="mapmapBtn" >Map
-       
-                </button>
+            <button type="button" class="btn btn-success" id="mapmapBtn" >Where can I get groceries?</button>
     </a>
 
 
@@ -155,10 +134,12 @@
                     <img src="./assets/images/imageedit_1_4643196240.png" alt="logo" id="nav-logo">
                 </a>  
                     <div id = "nav-searchbar">
-                        <input type="text" class="nav-form-control" id="inputBar2" placeholder="Look up another ingredient" aria-label="" aria-describedby="basic-addon1">
-                        <div class="nav-input-group-append">
-                            <button class="btn btn-success" type="button" id="searchBtn2">Love it</button>
-                        </div>
+                        <div class="input-group" id="nav-bar-input-group">
+                            <input type="text" class="form-control" id="inputBar" placeholder="Looking for something else?">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="searchBtn">Show me more!</button>
+                            </div>
+                        </div>           
                     </div>
             </div>
         
