@@ -99,6 +99,68 @@ $(document).ready( function() {
         });
     });
 
+ // Click listener for search button2
+ $(document).on("click", "#searchBtn2", function() {
+
+    //Reject if search bar is empty
+    if ($("#inputBar2").val()=="") {
+        return;
+    }
+
+    //Hide search screen container and show results screen container
+    // $("#main-page-container").hide();
+    // $(".hidden").show();
+
+    //Set q to input term and update queryURL
+    q = $("#inputBar2").val();
+
+    // Set variables for search filter
+    var va, vg, pf, tnf, af;
+    
+    if($("#filter-vegan").is(':checked')){va = "&health=vegan"}
+    else{va=""};
+    if($("#filter-vegetarian").is(':checked')){vg = "&health=vegetarian"}
+    else{vg=""};
+    if($("#filter-peanut-free").is(':checked')){pf = "&health=peanut-free"}
+    else{pf=""};
+    if($("#filter-tree-nut-free").is(':checked')){tnf = "&health=tree-nut-free"}
+    else{tnf=""};
+    if($("#filter-alcohol-free").is(':checked')){af = "&health=alcohol-free"}
+    else{af=""};
+
+    queryURL = `https://api.edamam.com/search?q=${q}&app_id=${apiID}&app_key=${apiKEY}${va}${vg}${pf}${tnf}${af}`;
+    console.log("queryURL: "+queryURL)
+    //API call and DOM manipulation
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+        }).then(function(response) {
+            //Set response.hits array to var results
+            results = response.hits;
+            //Make cards for each hit in response
+            for (var i = 0; i < results.length; i++) {
+                populateCard(i);
+            };
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // On results screen ------------------------------------------------------------
 
     //Click listener for result-cards
