@@ -142,6 +142,7 @@ function populateCard(i) {
                         <span class="tooltiptext">Favourite</span>
                     </button>
                     <button id="closeBtn">X
+                    <span class="tooltiptext">Close</span>
                     </button>
                 </div>
                 <h1><span>${results[i].recipe.label} (${Math.round(results[i].recipe.calories)} cal)</span></h1>
