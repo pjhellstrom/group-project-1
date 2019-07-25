@@ -139,6 +139,7 @@ function populateCard(i) {
                         <span class="tooltiptext">Favourite</span>
                     </button>
                     <button id="closeBtn">X
+                    <span class="tooltiptext">Close</span>
                     </button>
                 </div>
             </div>
