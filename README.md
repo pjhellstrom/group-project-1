@@ -1,4 +1,4 @@
-# group-project-1
+# Emergency Recepie
 
 # Group Do: Designing your MVP
 
